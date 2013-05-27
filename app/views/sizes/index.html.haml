@@ -1,0 +1,46 @@
+= render "profiles/profile_nav"
+.row-fluid
+  .span6.offset3
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th 
+          %th Testsúly
+          %th Testzsír
+          %th Nyak
+          %th Mell
+          %th Váll
+          %th Kar
+          %th Alkar
+          %th Derék
+          %th Csípő
+          %th Comb
+          %th Vádli
+      %tbody
+        - @sizes.each do |size|
+          %tr
+            %td
+              %small
+                = ido(size.created_at) if size.created_at
+            %td
+              = kg(size.testsuly)
+            %td
+              = pc(size.testzsir)
+            %td
+              = cm(size.nyak)
+            %td
+              = cm(size.mell)
+            %td
+              = cm(size.vall)
+            %td
+              = cm(size.kar)
+            %td
+              = cm(size.alkar)
+            %td
+              = cm(size.derek)
+            %td
+              = cm(size.csipo)
+            %td
+              = cm(size.comb)
+            %td
+              = cm(size.vadli)

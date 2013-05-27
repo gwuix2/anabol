@@ -1,0 +1,93 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+body {
+	background-color: #fff;
+}
+
+/* Szovegkijeloles */
+    ::selection {
+    background:#00C5FF;
+    color:#555;
+    }
+
+    ::-moz-selection {
+    background:#00C5FF;
+    color:#555;
+    }
+
+    ::-webkit-selection {
+    background:#00C5FF;
+    color:#555;
+    }
+/*-----------------*/
+
+
+#main {
+	padding-top: 60px;
+	color: #111;
+}
+
+.bottom-line {
+	border-bottom: 1px solid  #00a7ca;
+}
+
+.bottom-line-grey {
+	border-bottom: 1px solid  #e5e5e5;
+}
+
+
+.grey {
+	background-color: #fcfcfc;
+	border-radius: 6px;
+}
+
+.padding-top {
+	padding-top: 40px;
+}
+
+.profile-img {
+    margin: 17px 5px 5px 0px;
+}
+
+.padding5 {
+	padding: 5px;
+}
+
+.navbar-inner {
+	background: none;
+	background-color: #F1F1F1;
+	border-bottom: 1px solid #E8E8E8;
+	box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+    box-shadow: none;
+}
+
+.green-box {
+	background-color: green;
+	color:red;
+}
+
+.red-box {
+	background-color: red;
+	color:green;
+}
+
+.minimize {
+	max-height: 100px;
+}
+
+.description {
+	min-height: 170px;
+}
+
+.size-view {
+	border-top: 2px solid #ddd;
+	background-color: #eee;
+	strong {
+	color: #444;
+    }
+}

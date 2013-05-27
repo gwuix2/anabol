@@ -1,0 +1,29 @@
+%table.table-condensed.table
+  %tbody
+    - @sizes_index.each do |size|
+      %tr
+        %td
+          %small
+            = ido(size.created_at) if size.created_at
+        %td
+          = kg(size.testsuly)
+        %td
+          = pc(size.testzsir)
+        %td
+          = cm(size.nyak)
+        %td
+          = cm(size.mell)
+        %td
+          = cm(size.vall)
+        %td
+          = cm(size.kar)
+        %td
+          = cm(size.alkar)
+        %td
+          = cm(size.derek)
+        %td
+          = cm(size.csipo)
+        %td
+          = cm(size.comb)
+        %td
+          = cm(size.vadli)

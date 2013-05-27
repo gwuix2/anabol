@@ -1,0 +1,49 @@
+%table.table
+  %thead
+    %tr
+      %th Testsúly
+      %th Testzsír
+      %th Nyak
+      %th Mell
+      %th Váll
+      %th Kar
+      %th Alkar
+      %th Derék
+      %th Csípő
+      %th Comb
+      %th Vádli
+  %tbody
+    %tr
+      %td
+        %strong
+          = kg(last_valid(:testsuly))
+      %td
+        %strong
+          = pc(last_valid(:testzsir))
+      %td
+        %strong
+          = cm(last_valid(:nyak))
+      %td
+        %strong
+          = cm(last_valid(:mell))
+      %td
+        %strong
+          = cm(last_valid(:vall))
+      %td
+        %strong
+          = cm(last_valid(:kar))
+      %td
+        %strong
+          = cm(last_valid(:alkar))
+      %td
+        %strong
+          = cm(last_valid(:derek))
+      %td
+        %strong
+          = cm(last_valid(:csipo))
+      %td
+        %strong
+          = cm(last_valid(:comb))
+      %td
+        %strong
+          = cm(last_valid(:vadli))

@@ -1,0 +1,21 @@
+.row-fluid
+  .span6.offset3
+    %h2.pagination-centered
+      Új mérés
+    .padding-top
+      = simple_form_for(@size, :html => { :class => 'form-horizontal' }) do |f|
+        .form-inputs
+          = f.input :testsuly, label: "Testsúly(kg)"
+          = f.input :testzsir, label: "Testzsír(%)"
+          = f.input :nyak, label: "Nyak(cm)"
+          = f.input :mell, label: "Mell(cm)"
+          = f.input :vall, label: "Váll(cm)"
+          = f.input :kar, label: "Kar(cm)"
+          = f.input :alkar, label: "Alkar(cm)"
+          = f.input :derek, label: "Derék(cm)"
+          = f.input :csipo, label: "Csípő(cm)"
+          = f.input :comb, label: "Comb(cm)"
+          = f.input :vadli, label: "Vádli(cm)"
+        .form-actions
+          = link_to "Mégse", root_path, class: "btn"
+          = f.submit "Elküld", class: "btn btn-primary btn-large"
