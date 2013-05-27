@@ -91,3 +91,15 @@ body {
 	color: #444;
     }
 }
+
+table.dataTable tr.odd {
+    background-color: #eee;
+}
+
+table.dataTable tr.odd td.sorting_1 {
+    background-color: #ddd;
+}
+
+table.dataTable tr.even td.sorting_1 {
+    background-color: #eee;
+}

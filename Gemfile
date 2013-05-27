@@ -25,7 +25,8 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'therubyracer'
   gem 'execjs'
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-datatables-rails'
+  gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'

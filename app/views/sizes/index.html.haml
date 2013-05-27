@@ -1,7 +1,8 @@
 = render "profiles/profile_nav"
+%br/
 .row-fluid
-  .span6.offset3
-    %table.table.table-condensed
+  .span10.offset1
+    %table.datatable
       %thead
         %tr
           %th 
@@ -23,24 +24,24 @@
               %small
                 = ido(size.created_at) if size.created_at
             %td
-              = kg(size.testsuly)
+              = size.testsuly
             %td
-              = pc(size.testzsir)
+              = size.testzsir
             %td
-              = cm(size.nyak)
+              = size.nyak
             %td
-              = cm(size.mell)
+              = size.mell
             %td
-              = cm(size.vall)
+              = size.vall
             %td
-              = cm(size.kar)
+              = size.kar
             %td
-              = cm(size.alkar)
+              = size.alkar
             %td
-              = cm(size.derek)
+              = size.derek
             %td
-              = cm(size.csipo)
+              = size.csipo
             %td
-              = cm(size.comb)
+              = size.comb
             %td
-              = cm(size.vadli)
+              = size.vadli
