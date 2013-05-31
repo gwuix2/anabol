@@ -1,26 +1,27 @@
-.row-fluid
-  .span6.offset3
-    %h2.pagination-centered
-      Új mérés
-    .padding-top
-      = simple_form_for(@size, :html => { :class => 'form-horizontal' }) do |f|
-        .form-inputs
-          #datetime.input-append
-            = f.input :mikor, :label => "Mérés ideje", :wrapper => :append do
-              = f.input_field :mikor, :as => :string, "data-format" => "yyyy/MM/dd hh:mm:ss" 
-              %span.add-on
-                %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
-          = f.input :testsuly, label: "Testsúly(kg)"
-          = f.input :testzsir, label: "Testzsír(%)"
-          = f.input :nyak, label: "Nyak(cm)"
-          = f.input :mell, label: "Mell(cm)"
-          = f.input :vall, label: "Váll(cm)"
-          = f.input :kar, label: "Kar(cm)"
-          = f.input :alkar, label: "Alkar(cm)"
-          = f.input :derek, label: "Derék(cm)"
-          = f.input :csipo, label: "Csípő(cm)"
-          = f.input :comb, label: "Comb(cm)"
-          = f.input :vadli, label: "Vádli(cm)"
-        .form-actions
-          = f.submit "Elküld", class: "btn btn-primary btn-large"
-          = link_to "Mégse", "#", class: "btn btn-large", id: "close-size"
+#sf 
+  .row-fluid
+    .span6.offset3
+      %h2.pagination-centered
+        Új mérés
+      .padding-top
+        = simple_form_for(@size, :html => { :class => 'form-horizontal' }) do |f|
+          .form-inputs
+            #datetime.input-append
+              = f.input :mikor, :label => "Mérés ideje", :wrapper => :append do
+                = f.input_field :mikor, :as => :string, "data-format" => "yyyy/MM/dd hh:mm:ss" 
+                %span.add-on
+                  %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+            = f.input :testsuly, label: "Testsúly(kg)"
+            = f.input :testzsir, label: "Testzsír(%)"
+            = f.input :nyak, label: "Nyak(cm)"
+            = f.input :mell, label: "Mell(cm)"
+            = f.input :vall, label: "Váll(cm)"
+            = f.input :kar, label: "Kar(cm)"
+            = f.input :alkar, label: "Alkar(cm)"
+            = f.input :derek, label: "Derék(cm)"
+            = f.input :csipo, label: "Csípő(cm)"
+            = f.input :comb, label: "Comb(cm)"
+            = f.input :vadli, label: "Vádli(cm)"
+          .form-actions
+            = f.submit "Elküld", class: "btn btn-primary btn-large"
+            = link_to "Mégse", "#", class: "btn btn-large", id: "close-size"

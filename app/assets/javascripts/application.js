@@ -15,11 +15,13 @@
 //= require dataTables/jquery.dataTables
 //= require bootstrap-datetimepicker
 //= require bootstrap
-//= require highcharts 
+//= require highcharts
 //= require_tree .
-$('.dropdown-toggle').dropdown()
+
+
 
 $(function(){
+  $("#datetime").datetimepicker()
   $('#login-link').on('click', function() {
     $('#login-box').fadeToggle("fast");
     $('#login-link').toggleClass("active");

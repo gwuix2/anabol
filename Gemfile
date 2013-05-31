@@ -30,6 +30,8 @@ group :assets do
   gem 'bootstrap-datetimepicker-rails'
 end
 
+gem 'friendly_id'
+gem 'ajaxify_rails'
 gem 'jquery-rails'
 gem "cancan"
 gem "simple_form"
