@@ -12,8 +12,8 @@
       .nav-collapse.collapse
         %ul.nav.pull-right
           - unless user_signed_in?
-            %li{:class => "#{'active' if current_page?(new_user_session_path)}"}
-              = link_to "Belépés", new_user_session_path
+            %li{:class => "#{'active' if current_page?(new_user_session_path)}", id: "login-link"}
+              = link_to "Belépés", "#"
           - else
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -27,3 +27,21 @@
                 %li.divider
                 %li
                   = link_to "Kilépés", destroy_user_session_path, method: :delete
+    .container#login-container
+      #login-box
+        /= form_tag user_session_path do
+        /  %ul.unstyled
+        /    %li{:placeholder => "email" }
+        /      = text_field_tag 'user[email]'
+        /    %li
+        /      = password_field_tag 'user[password]'
+        /    %li
+        /      %button.btn.btn-primary Belépés
+        /      = link_to "Elfelejtett jelszó?", new_password_path('user'), class: "btn btn-link"
+        = simple_form_for("user", :url => user_session_path) do |f|
+          = f.input :email, label: false, placeholder: "email"
+          = f.input :password, label: false, placeholder: "jelszó"
+          = f.input :remember_me, input_html: { value: '1' }, inline_label: 'Emlékezz rám!', as: :boolean, label: false
+          = link_to "Elfelejtett jelszó?", new_password_path('user'), class: "btn btn-link"
+          = f.submit 'Belépés', class: "btn btn-primary"
+ 

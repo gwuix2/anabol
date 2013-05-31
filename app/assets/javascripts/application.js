@@ -13,7 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+//= require bootstrap-datetimepicker
 //= require bootstrap
 //= require highcharts 
 //= require_tree .
 $('.dropdown-toggle').dropdown()
+
+$(function(){
+  $('#login-link').on('click', function() {
+    $('#login-box').fadeToggle("fast");
+    $('#login-link').toggleClass("active");
+  });
+});

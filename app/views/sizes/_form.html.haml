@@ -5,6 +5,11 @@
     .padding-top
       = simple_form_for(@size, :html => { :class => 'form-horizontal' }) do |f|
         .form-inputs
+          #datetime.input-append
+            = f.input :mikor, :label => "Mérés ideje", :wrapper => :append do
+              = f.input_field :mikor, :as => :string, "data-format" => "yyyy/MM/dd hh:mm:ss" 
+              %span.add-on
+                %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
           = f.input :testsuly, label: "Testsúly(kg)"
           = f.input :testzsir, label: "Testzsír(%)"
           = f.input :nyak, label: "Nyak(cm)"
@@ -17,5 +22,5 @@
           = f.input :comb, label: "Comb(cm)"
           = f.input :vadli, label: "Vádli(cm)"
         .form-actions
-          = link_to "Mégse", root_path, class: "btn"
           = f.submit "Elküld", class: "btn btn-primary btn-large"
+          = link_to "Mégse", "#", class: "btn btn-large", id: "close-size"

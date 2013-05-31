@@ -1,43 +1,40 @@
-= render "profiles/profile_nav"
-.row-fluid
-  .span2
-    = image_tag(@profile.image_url(:thumb), class: "profile-img img-polaroid")
-  .span2
-    .muted
-      %table.table-condensed
-        %thead
-          %h4.padding5 Profil
-        %tbody
-          %tr
-            %td Név
-            %td= @profile.real_name
-          %tr
-            %td Szül.
-            %td= @profile.date_of_birth
-          %tr
-            %td Város
-            %td= @profile.varos
-          %tr
-            %td Edzőterem
-            %td= @profile.gym
-          %tr
-            %td Nem
-            %td= @profile.nem2
-          %tr
-            %td Sportág
-            %td= @profile.sport
-  .span4
-    %br/
-    %br/
-    = high_chart("my_id4", @tzs)
-  .span4
-    %h5.muted
-      Magamról
-    .well.description
-      = @profile.description
+- if myprofile?(@profile)
+  = render "profiles/profile_nav"
+  #profile
+    .row-fluid
+      .span2
+        = image_tag(@profile.image_url(:thumb), class: "profile-img img-polaroid")
+      .span2
+        = render "profiles/personal"
+      .span4
+        %br/
+        %br/
+        = high_chart("my_id4", @tzs)
+      .span4
+        %h4.muted
+          Magamról
+        .well.description
+          = @profile.description
+    
+    .row-fluid
+      .span5
+        #naptar
+          = calendar do |date|
+            - if @workouts_by_date[date]
+              = date.day
+              %ul.unstyled
+                - @workouts_by_date[date].each do |workout|
+                  %li{ title: workout.name }
+                    = link_to workout do
+                      .btn.btn-inverse.btn-mini
+                        %i.icon-tag.icon-white
+            - else
+              = date.day
+    
+    
+      .span7
+        .size-view
+          = render "profiles/size_view"
+- else
+  = render "profiles/private"
 
-.row-fluid
-  .span4
-  .span8
-    .size-view
-      = render "profiles/size_view"

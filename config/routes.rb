@@ -1,9 +1,11 @@
 Anabol::Application.routes.draw do
+
   devise_for :users
 
   resources :profiles
   resources :sizes
-
+  resources :workouts
+  
   root :to => "static_pages#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.

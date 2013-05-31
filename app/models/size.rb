@@ -1,5 +1,5 @@
 class Size < ActiveRecord::Base
-  attr_accessible :user_id, :testsuly, :testzsir, :nyak, :mell, :vall, :kar, :alkar, :derek, :csipo, :comb, :vadli
+  attr_accessible :user_id, :testsuly, :testzsir, :nyak, :mell, :vall, :kar, :alkar, :derek, :csipo, :comb, :vadli, :mikor
 
   belongs_to :user
 
@@ -12,7 +12,7 @@ class Size < ActiveRecord::Base
   end
 
   def empty?
-    ignored_attrs = {'id' => 1, 'created_at' => 1, 'updated_at' => 1, 'user_id' => 1}
+    ignored_attrs = {'id' => 1, 'created_at' => 1, 'updated_at' => 1, 'user_id' => 1, 'mikor' => 1}
     self.attributes.all?{|k,v| v.blank? || ignored_attrs[k]}
   end
 end

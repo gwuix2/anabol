@@ -5,16 +5,12 @@ class ProfilesController < ApplicationController
 
   def show
   	@profile = Profile.find(params[:id])
-    @size = @user.sizes.new
     @sizes_index = @user.sizes.order("created_at DESC").first(5)
-    @sizes = Size.where(:user_id => @profile.user.id).all
+    @sizes = Size.where(:user_id => @profile.user.id).order("mikor ASC").all
 
-    @testsuly = Size.where(:user_id => @profile.user.id).collect(&:testsuly).compact
-    @testzsir = Size.where(:user_id => @profile.user.id).collect(&:testzsir).compact
-    @times = []
-    @sizes.each do |testsuly|
-      @times << ido(testsuly.created_at)
-    end
+    @testsuly = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testsuly).compact
+    @testzsir = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testzsir).compact
+    @times = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:mikor).compact
 
     @ts = LazyHighCharts::HighChart.new('graph', :style => "height:230px;max-width:380px;" ) do |f|
       f.options[:chart][:defaultSeriesType] = "area"
@@ -28,6 +24,10 @@ class ProfilesController < ApplicationController
       f.series(:name=>'Testzsír(%)', :data=>@testzsir, :visible => false)
       f.xAxis(:categories => @times )
     end
+
+    @workouts = Workout.where(:user_id => @profile.user_id).all
+    @workouts_by_date = @workouts.group_by(&:mikor_date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def edit
@@ -48,10 +48,5 @@ class ProfilesController < ApplicationController
     end
   end
 
-  private
 
-    def get_user
-      @profile ||= Profile.find(params[:id])
-      @user ||= User.find_by_id(@profile.user_id)
-    end
 end

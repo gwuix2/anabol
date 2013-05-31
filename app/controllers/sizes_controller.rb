@@ -1,6 +1,8 @@
 # coding: utf-8
 class SizesController < ApplicationController
-  before_filter :load_user
+  
+  before_filter :get_user
+
 
   def index
     @sizes = @user.sizes.all
@@ -24,9 +26,5 @@ class SizesController < ApplicationController
     end
   end
 
-  private
 
-    def load_user
-	  @user ||= current_user
-    end
 end

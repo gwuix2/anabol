@@ -1,0 +1,23 @@
+%h2 Edzések listája
+
+%table.table
+  %tr
+    %th Description
+    %th Mikor
+    %th User
+    %th
+    %th
+    %th
+
+  - @workouts.each do |workout|
+    %tr
+      %td= workout.description
+      %td= workout.mikor
+      %td= workout.user_id
+      %td= link_to 'Show', workout
+      %td= link_to 'Edit', edit_workout_path(workout)
+      %td= link_to 'Destroy', workout, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Workout', new_workout_path

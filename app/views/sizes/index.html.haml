@@ -5,7 +5,8 @@
     %table.datatable
       %thead
         %tr
-          %th 
+          %th Létrehozva
+          %th Mérés dátuma
           %th Testsúly
           %th Testzsír
           %th Nyak
@@ -23,6 +24,8 @@
             %td
               %small
                 = ido(size.created_at) if size.created_at
+            %td
+              = size.mikor
             %td
               = size.testsuly
             %td

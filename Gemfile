@@ -27,6 +27,7 @@ group :assets do
   gem 'execjs'
   gem 'jquery-datatables-rails'
   gem 'jquery-ui-rails'
+  gem 'bootstrap-datetimepicker-rails'
 end
 
 gem 'jquery-rails'

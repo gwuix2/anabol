@@ -6,9 +6,20 @@
       = link_to "/" + @profile.user_name , @profile if @profile.user_name
       .pull-right
         - if own_profile?(@profile)
-          = link_to "méréseim", sizes_path, class: "btn"
-          = link_to "új mérés", new_size_path, class: "btn btn-primary"
-          = link_to edit_profile_path(current_user.profile) do
-            .btn{title: "Profilod beállításai"}
-              %i.icon-wrench
-
+          .btn-toolbar
+            .btn-group
+              = link_to "+", new_workout_path, class: "btn btn-primary"
+              = link_to "edzéseim", workouts_path, class: "btn"
+            .btn-group
+              = link_to "+", new_size_path, class: "btn btn-primary"
+              = link_to "méréseim", sizes_path, class: "btn"
+            .btn-group
+              = link_to edit_profile_path(current_user.profile) do
+                .btn{title: "Profilod beállításai"}
+                  %i.icon-wrench
+#workout-form
+  .row-fluid
+    .span12
+#size-form
+  .row-fluid
+    .span12

@@ -6,6 +6,7 @@
     = simple_form_for(current_user.profile, :html => {:class => 'form-horizontal' }) do |f|
       = f.input :real_name, label: "Név"
       = f.input :user_name, label: "Felhasználónév"
+      = f.input :private, label: "Privát profil"
       = f.input :date_of_birth, collection: 1960..2005 
       = f.input :nem2, priority: [ "Férfi" ], collection: [ "Férfi", "Nő"], label: "nem"
       = f.input :magassag, label: "Magasság", hint: "Centiméterben"
