@@ -2,13 +2,13 @@
   #profile
     .row-fluid
       .span2
-        = image_tag(@profile.image_url(:thumb), class: "profile-img img-polaroid")
+        = image_tag(@profile.image_url(:thumb), class: "profile-img")
       .span2
-        = render "profiles/personal"
+        = render "personal"
       .span4
         %br/
         %br/
-        = high_chart("my_id4", @tzs)
+        = high_chart("chart_tzs", @ts)
       .span4
         %h4.muted
           Magamról
@@ -17,23 +17,17 @@
     
     .row-fluid
       .span5
-        #naptar
-          = calendar do |date|
-            - if @workouts_by_date[date]
-              = date.day
-              %ul.unstyled
-                - @workouts_by_date[date].each do |workout|
-                  %li{ title: workout.name }
-                    = link_to workout do
-                      .btn.btn-inverse.btn-mini
-                        %i.icon-tag.icon-white
-            - else
-              = date.day
+        = render "calendar"
     
     
       .span7
         .size-view
-          = render "profiles/size_view"
+          = render "size_view"
+        .workout-wrapper
+          = render "workouts/showme"
 - else
-  = render "profiles/private"
+  = render "private"
 
+/:javascript
+/  $('#last-workout').append("#{ j render "last_workout" }");
+/  $('#last-workout').fadeIn(1000);

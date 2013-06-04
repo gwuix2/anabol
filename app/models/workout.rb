@@ -1,11 +1,14 @@
 class Workout < ActiveRecord::Base
-  attr_accessible :description, :mikor, :user_id, :template, :name, :period_time, :mikor_date
+  attr_accessible :description, :mikor, :user_id, :template, :name, :period_time, :mikor_date, :color
+  
+  validates :mikor, :presence => true
 
-  belongs_to :user
+  belongs_to :profile
 
   before_save :setmydate
 
   def setmydate
   	self.mikor_date = self.mikor.to_date if self.mikor
   end
+
 end

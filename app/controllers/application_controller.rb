@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   end
 
   def get_user
-    @profile ||= Profile.find(params[:id]) if params[:id]
-    @profile ||= current_user.profile
-    @user ||= User.find_by_id(@profile.user_id)
+    @user ||= current_user
+    @user ||= User.find_by_id(@profile.user_id) if @profile
+    @profile ||= current_user.profile if current_user
   end
 
 end

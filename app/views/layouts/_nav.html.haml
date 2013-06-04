@@ -12,9 +12,13 @@
       .nav-collapse.collapse
         %ul.nav.pull-right
           - unless user_signed_in?
+            %li
+              = link_to "Regisztráció", new_user_registration_path
             %li{:class => "#{'active' if current_page?(new_user_session_path)}", id: "login-link"}
               = link_to "Belépés", "#"
           - else
+            %li
+              = link_to "Meta", meta_path
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 %i.icon-user

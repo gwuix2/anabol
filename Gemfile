@@ -30,6 +30,9 @@ group :assets do
   gem 'bootstrap-datetimepicker-rails'
 end
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'gon'
 gem 'friendly_id'
 gem 'ajaxify_rails'
 gem 'jquery-rails'

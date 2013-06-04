@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530124451) do
+ActiveRecord::Schema.define(:version => 20130604091713) do
+
+  create_table "meta_reports", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "profile_id"
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "name"
@@ -33,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130530124451) do
     t.text     "gym_routine"
     t.text     "nutrition"
     t.boolean  "private"
+    t.string   "slug"
   end
 
   create_table "sizes", :force => true do |t|
@@ -51,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130530124451) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.date     "mikor"
+    t.integer  "profile_id"
   end
 
   create_table "users", :force => true do |t|
@@ -66,6 +78,10 @@ ActiveRecord::Schema.define(:version => 20130530124451) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.boolean  "admin"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -82,6 +98,8 @@ ActiveRecord::Schema.define(:version => 20130530124451) do
     t.integer  "period_time"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "color"
+    t.integer  "profile_id"
   end
 
 end

@@ -2,11 +2,11 @@ $('#workout-form').fadeOut("fast");
 $('#wf').remove();
 $('#sf').remove();
 $('#size-form').fadeIn("fast").append('<%= j render "form" %>');
-$('#profile').fadeOut("fast");
+$('#yield').fadeOut("fast");
 $('#close-size').on('click', function() {
   $('#wf').remove();
   $('#sf').remove();
   $('#size-form').fadeOut("fast");
-  $('#profile').fadeIn("fast");
+  $('#yield').fadeIn("fast");
 });
-$("#datetime").datetimepicker()
+$(".datetime").datetimepicker()

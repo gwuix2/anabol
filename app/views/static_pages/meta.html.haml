@@ -1,0 +1,23 @@
+- @no_nav = true
+.row-fluid
+  .span6
+    %h2.muted
+      Meta
+    %p
+      Ez a rész a "meta", az anabolizmus.hu fejlesztéséről, ötletekről, esetleges hibákról szól.
+      Kérlek segítsd az oldalt, bármi észrevételed vagy ötleted van szívesen fogadom.
+.row-fluid
+  .span12
+    #meta
+      - if user_signed_in?
+        = simple_form_for(@meta_report) do |f|
+          = f.error_notification
+        
+          .form-inputs
+            = f.input :name, label: "Jelentés tárgya"
+            = f.input :description, as: :text,  label: "Jelentés leírása", input_html: { class: 'span6' }
+        
+          .form-actions
+            = f.button :submit, "Küldés", class: "btn btn-success btn-large"
+      - else
+        %h2 Jelentkezz be hogy tudj jelentést létrehozni.

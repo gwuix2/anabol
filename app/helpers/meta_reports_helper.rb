@@ -1,0 +1,2 @@
+module MetaReportsHelper
+end

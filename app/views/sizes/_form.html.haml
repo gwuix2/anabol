@@ -4,9 +4,9 @@
       %h2.pagination-centered
         Új mérés
       .padding-top
-        = simple_form_for(@size, :html => { :class => 'form-horizontal' }) do |f|
+        = simple_form_for([@profile, @size], :html => { :class => 'form-horizontal' }) do |f|
           .form-inputs
-            #datetime.input-append
+            .datetime.input-append
               = f.input :mikor, :label => "Mérés ideje", :wrapper => :append do
                 = f.input_field :mikor, :as => :string, "data-format" => "yyyy/MM/dd hh:mm:ss" 
                 %span.add-on

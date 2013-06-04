@@ -2,9 +2,11 @@
 class WorkoutsController < ApplicationController
 
   before_filter :get_user
+  
+  load_and_authorize_resource
 
   def index
-    @workouts = @user.workouts.all
+    @workouts = @profile.workouts.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @workouts }
@@ -12,8 +14,7 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-    @workout = @user.workouts.new
-    
+    @workout = @profile.workouts.new
   end
 
   def show
@@ -21,6 +22,7 @@ class WorkoutsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js {}
       format.json { render json: @workout }
     end
   end
@@ -32,7 +34,7 @@ class WorkoutsController < ApplicationController
 
 
   def create
-    @workout = @user.workouts.new(params[:workout])
+    @workout = @profile.workouts.new(params[:workout])
     @workout.user_id = current_user.id
     respond_to do |format|
       if @workout.save
@@ -46,7 +48,7 @@ class WorkoutsController < ApplicationController
   end
 
   def update
-    @workout = @user.workouts(params[:id])
+    @workout = @profile.workouts(params[:id])
 
     respond_to do |format|
       if @workout.update_attributes(params[:workout])

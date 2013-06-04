@@ -1,11 +1,16 @@
 Anabol::Application.routes.draw do
 
+  resources :meta_reports
+
   devise_for :users
 
-  resources :profiles
-  resources :sizes
-  resources :workouts
-  
+  get "/meta", to: "static_pages#meta"
+
+  resources :profiles, :only => [:show, :edit, :update], :path => "/" do
+     resources :sizes
+     resources :workouts
+  end
+
   root :to => "static_pages#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @meta_report.name
+%p
+  %b Description:
+  = @meta_report.description
+
+= link_to 'Edit', edit_meta_report_path(@meta_report)
+\|
+= link_to 'Back', meta_reports_path

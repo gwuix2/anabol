@@ -4,17 +4,18 @@
       %h2.pagination-centered
         Új edzés
       .padding-top
-        = simple_form_for(@workout, :html => { :class => 'form-horizontal' }) do |f|
+        = simple_form_for([@profile, @workout], :html => { :class => 'form-horizontal' }) do |f|
           = f.error_notification
         
           .form-inputs
-            = f.input :name , label: "Edzés neve"
-            = f.input :period_time, label: "Időtartam - percben"
-            #datetime2.input-append
-              = f.input :mikor, :label => "Edzés ideje", :wrapper => :append do
+            = f.input :name, required: true, label: "Edzés neve"
+            .datetime.input-append
+              = f.input :mikor, required: true, :label => "Edzés ideje", :wrapper => :append do
                 = f.input_field :mikor, :as => :string, "data-format" => "yyyy/MM/dd hh:mm:ss" 
                 %span.add-on
                   %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+            = f.input :period_time, label: "Időtartam - percben"
+            = f.input :color, priority: "fehér", collection: [ "fehér", "kék", "fekete", "piros", "sárga", "zöld" ], label: "Jelölőszín", as: :radio_buttons
             = f.input :template, label: "Mentés sablonként"
             = f.input :description, label: "Edzés leírása", input_html: { class: 'span10' }
         

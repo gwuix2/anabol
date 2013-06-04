@@ -4,7 +4,7 @@ module ProfilesHelper
   	  if user_signed_in?
   	  	if profile.user_id == current_user.id
   	  		true
-  	      end
+  	    end
   	  end
   	else
   	  true

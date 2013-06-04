@@ -3,21 +3,38 @@ class SizesController < ApplicationController
   
   before_filter :get_user
 
+  load_and_authorize_resource
 
   def index
-    @sizes = @user.sizes.all
+    @sizes = @profile.sizes.all
   end
 
   def new
-    @size = @user.sizes.new
+    @size = @profile.sizes.new
   end
 
   def update
-  	@size = @user.sizes(params[:id])
+  	@size = @profile.sizes.find(params[:id])
+
+    respond_to do |format|
+      if @size.update_attributes(params[:size])
+        format.html { redirect_to root_path, notice: 'Mérésed sikeresen frissítetted.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @size.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
+  def edit
+    @size = @profile.sizes.find(params[:id])
+  end
+
+
   def create
-    @size = @user.sizes.new(params[:size])
+    @size = @profile.sizes.new(params[:size])
+
     @size.user_id = current_user.id
     if @size.save
       redirect_to root_path, notice: "Új mérés elmentve."

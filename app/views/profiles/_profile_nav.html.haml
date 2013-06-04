@@ -1,6 +1,4 @@
-- @user ||= current_user
-- @profile ||= @user.profile if @user
-- if @profile
+- if @profile && @no_nav == nil
   .row-fluid
     .span12.bottom-line
       %h2
@@ -9,11 +7,11 @@
           - if own_profile?(@profile)
             .btn-toolbar
               .btn-group
-                = link_to "+", new_workout_path, class: "btn btn-primary", id: "new-workout", remote: true
-                = link_to "edzéseim", workouts_path, class: "btn"
+                = link_to "+", new_profile_workout_path(@profile), class: "btn btn-primary", id: "new-workout", remote: true
+                = link_to "edzéseim", profile_workouts_path(@profile), class: "btn"
               .btn-group
-                = link_to "+", new_size_path, class: "btn btn-primary", id: "new-size", remote: true
-                = link_to "méréseim", sizes_path, class: "btn"
+                = link_to "+", new_profile_size_path(@profile), class: "btn btn-primary", id: "new-size", remote: true
+                = link_to "méréseim", profile_sizes_path(@profile), class: "btn"
               .btn-group
                 = link_to edit_profile_path(current_user.profile) do
                   .btn{title: "Profilod beállításai"}

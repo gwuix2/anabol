@@ -2,7 +2,7 @@
   .span6.offset3
     %h3.pagination-centered
       Profilod beállításai
-    = simple_form_for(current_user.profile, :html => {:class => 'form-horizontal' }) do |f|
+    = simple_form_for(@profile, :html => {:class => 'form-horizontal' }) do |f|
       = f.input :real_name, label: "Név"
       = f.input :user_name, label: "Felhasználónév"
       = f.input :private, label: "Privát profil"

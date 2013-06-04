@@ -20,4 +20,9 @@
               .span12
                 = render partial: "shared/flash_messages", flash: flash
                 = render "profiles/profile_nav"
-                = yield
+                #yield
+                  = yield
+      #footer
+        .container
+          .content
+            = render "layouts/footer"

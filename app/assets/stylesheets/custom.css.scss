@@ -2,6 +2,18 @@
 @import "bootstrap-responsive";
 @import 'bootstrap-datetimepicker';
 
+
+@mixin standard {
+      background-color: #fdfdfd;
+      border: 1px solid #E8E8E8;
+      border-radius: 6px;
+      padding: 6px;
+}
+
+.standard {
+  @include standard;
+}
+
 body {
 	background-color: #fff;
 }
@@ -48,7 +60,8 @@ body {
 }
 
 .profile-img {
-    margin: 17px 5px 5px 0px;
+    margin: 13px 5px 5px 0px;
+    padding: 5px;
 }
 
 .padding5 {
@@ -86,12 +99,17 @@ body {
 }
 
 .size-view {
-	border-top: 2px solid #ddd;
-	background-color: #eee;
+	border: 1px solid #EEEEEE;
+	background-color: #fdfdfd;
+  border-radius: 4px;
   width: 100%;
+  margin-bottom: 4px;
 	strong {
 	color: #444;
     }
+  .table {
+    margin-bottom: 5px;
+  }
 }
 
 table.dataTable tr.odd {
@@ -117,20 +135,21 @@ table.dataTable tr.even td.sorting_1 {
 
   td, th {
     font-family: "Lucida Grande", arial, helvetica, sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     padding: 6px;
-    border: 1px solid #999;
+    border: 1px solid #e5e5e5;
   }
 
   th {
-    background: #DDD;
+    background: #fff;
     color: #666;
     text-align: center;
     width: 14.2857142857143%;
+    border:0;
   }
 
   td {
-    background: #FFF;
+    background: #fcfcfc;
     color: #777;
     height: 26px;
     max-height: 26px;
@@ -139,8 +158,11 @@ table.dataTable tr.even td.sorting_1 {
   }
 
   .notmonth, .notmonth a { color: #CCC; }
-  .today { background-color: #E0F8F7; }
+  .today { 
+    background-color: #E0F8F7;
+  }
 }
+
 
 #naptar #month {
   margin: 0;
@@ -160,12 +182,10 @@ table.dataTable tr.even td.sorting_1 {
 
 }
 
-/*---------- End----------*/
+/*------Calendar End----------*/
 
 #workout-form {
-    background-color: #FDFDFD;
-    border: 3px solid #F0F0F0;
-    border-radius: 6px 6px 6px 6px;
+    @include standard;
     display: none;
     margin: 10px;
 }
@@ -217,4 +237,55 @@ table.dataTable tr.even td.sorting_1 {
   min-height: 100px;
   min-width: 100px;
   background-color: #000;
+}
+
+#showme {
+}
+
+.workout-wrapper {
+    @include standard;
+    min-height: 300px;
+}
+
+.well {
+    @include standard;
+    box-shadow: none;
+}
+
+.muted {
+    color: #787878;
+}
+
+
+* {margin:0;padding:0;} 
+
+/* must declare 0 margins on everything, also for main layout components use padding, not 
+vertical margins (top and bottom) to add spacing, else those margins get added to total height 
+and your footer gets pushed down a bit more, creating vertical scroll bars in the browser */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+
+#footer {
+    /*border-top: 4px solid #eee;*/
+    /*background-color: #ddd;*/
+    background-color: #F1F1F1;
+    border-top: 1px solid #E8E8E8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    a {
+      color: #787878;
+    }
+}
+
+#meta {
+  @include standard;
 }

@@ -1,0 +1,14 @@
+- if @workout
+  #showme
+    %h4.muted
+      = @workout.name
+      .pull-right
+        = localize(@workout.mikor, :format => :short) if @workout.mikor
+    %h5.muted
+      Időtartam:
+      - if @workout.period_time
+        = @workout.period_time.to_s + " perc" 
+      - else
+        = "--"
+    %p
+      = simple_format(@workout.description)

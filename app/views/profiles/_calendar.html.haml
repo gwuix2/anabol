@@ -1,0 +1,32 @@
+#naptar
+  = calendar do |date|
+    - if @workouts_by_date[date]
+      = date.day
+      %ul.unstyled
+        - @workouts_by_date[date].each do |workout|
+          %li{ title: workout.name }
+            = link_to profile_workout_path(workout), remote: true, id: "workout-link" do
+              - if workout.color == "fehér"
+                .btn.btn-mini.btn-block
+                  %i.icon-tag
+              - elsif workout.color == "kék"
+                .btn.btn-mini.btn-primary.btn-block
+                  %i.icon-tag
+              - elsif workout.color == "zöld"
+                .btn.btn-mini.btn-succes.btn-block
+                  %i.icon-tag
+              - elsif workout.color == "sárga"
+                .btn.btn-mini.btn-warning.btn-block
+                  %i.icon-tag
+              - elsif workout.color == "piros"
+                .btn.btn-mini.btn-danger.btn-block
+                  %i.icon-tag
+              - elsif workout.color == "fekete"
+                .btn.btn-mini.btn-inverse.btn-block
+                  %i.icon-tag
+              - else
+                .btn.btn-mini.btn.btn-block
+                  %i.icon-tag
+
+    - else
+      = date.day

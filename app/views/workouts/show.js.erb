@@ -1,0 +1,5 @@
+$("#showme").fadeOut('fast', function() {
+  $('#showme').remove();
+  $(".workout-wrapper").append("<%= j render('showme') %>");
+  $("#showme").fadeIn('fast');
+});

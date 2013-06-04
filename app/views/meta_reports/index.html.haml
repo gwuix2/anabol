@@ -1,0 +1,21 @@
+%h1 Listing meta_reports
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @meta_reports.each do |meta_report|
+    %tr
+      %td= meta_report.name
+      %td= meta_report.description
+      %td= link_to 'Show', meta_report
+      %td= link_to 'Edit', edit_meta_report_path(meta_report)
+      %td= link_to 'Destroy', meta_report, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Meta report', new_meta_report_path

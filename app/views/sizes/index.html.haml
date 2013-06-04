@@ -17,6 +17,7 @@
           %th Csípő
           %th Comb
           %th Vádli
+          %th
       %tbody
         - @sizes.each do |size|
           %tr
@@ -47,3 +48,5 @@
               = size.comb
             %td
               = size.vadli
+            %td
+              = link_to "Szerkesztés", edit_profile_size_path(@profile, size), class: "btn btn-link"

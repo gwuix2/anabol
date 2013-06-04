@@ -21,7 +21,7 @@
 
 
 $(function(){
-  $("#datetime").datetimepicker()
+  $(".datetime").datetimepicker();
   $('#login-link').on('click', function() {
     $('#login-box').fadeToggle("fast");
     $('#login-link').toggleClass("active");
