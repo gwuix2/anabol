@@ -1,8 +1,14 @@
+- provide(:title, @profile.user_name.to_s)
+= render 'profile_nav'
 - if myprofile?(@profile)
   #profile
     .row-fluid
       .span2
-        = image_tag(@profile.image_url(:thumb), class: "profile-img")
+        .profile-img
+          - if @profile.image_url
+            = image_tag(@profile.image_url(:thumb), class: "profile-img")
+          - else
+            = image_tag('user.png')
       .span2
         = render "personal"
       .span4

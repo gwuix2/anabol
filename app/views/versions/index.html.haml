@@ -1,0 +1,26 @@
+.row-fluid
+  .span2
+    = link_to "új verzió létrehozása", new_version_path, class: "btn btn-block btn-success"
+%br
+- @versions.each do |version|
+  .row-fluid
+    .span2.standard
+      .pull-right
+        = version.v
+    .span8.standard
+      = version.description
+    .span2
+      = link_to edit_version_path(version) do
+        %i.icon-edit
+      = link_to version, :method => :delete do
+        %i.icon-trash
+
+
+
+/  %tr
+/    %td= version.name
+/    %td= version.v
+/    %td= version.description
+/    %td= link_to 'Show', version
+/    %td= link_to 'Edit', edit_version_path(version)
+/    %td= link_to 'Destroy', version, :method => :delete, :data => { :confirm => 'Are you sure?' }

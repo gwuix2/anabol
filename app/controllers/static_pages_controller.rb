@@ -4,9 +4,10 @@ class StaticPagesController < ApplicationController
 
   def home
     if user_signed_in?
-      redirect_to profile_path(current_user.profile)
+      redirect_to current_user.profile if current_user.profile
     else
     end
+
   end
 
   def about
@@ -24,5 +25,11 @@ class StaticPagesController < ApplicationController
   def meta
     @no_nav = true
     @meta_report = @profile.meta_reports.new if @profile
+  end
+
+  def adatvedelem
+  end
+
+  def feltetelek
   end
 end

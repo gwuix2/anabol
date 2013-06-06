@@ -15,8 +15,8 @@ module ApplicationHelper
     end
 
   def last_valid(attr)
-    if Size.where(:user_id => @user.id).collect(&(attr)).compact.last
-      Size.where(:user_id => @user.id).collect(&(attr)).compact.last
+    if Size.where(:profile_id => @profile.id).collect(&(attr)).compact.last
+      Size.where(:profile_id => @profile.id).collect(&(attr)).compact.last
     else
       '--'
     end

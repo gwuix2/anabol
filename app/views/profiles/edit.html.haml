@@ -1,3 +1,4 @@
+- provide(:title, "Beállítások - " + @profile.user_name.to_s)
 .row-fluid
   .span6.offset3
     %h3.pagination-centered
@@ -6,7 +7,7 @@
       = f.input :real_name, label: "Név"
       = f.input :user_name, label: "Felhasználónév"
       = f.input :private, label: "Privát profil"
-      = f.input :date_of_birth, collection: 1960..2005 
+      = f.input :date_of_birth, collection: 1960..2005, albel: "Születés éve"
       = f.input :nem2, priority: [ "Férfi" ], collection: [ "Férfi", "Nő"], label: "nem"
       = f.input :magassag, label: "Magasság", hint: "Centiméterben"
       = f.input :varos, label: "Város"

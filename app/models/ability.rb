@@ -12,6 +12,7 @@ class Ability
       can :manage, Profile, :user_id => user.id
       can :manage, Size, :user_id => user.id
       can :manage, Workout, :user_id => user.id
+      cannot :manage, Version
     end
     #
     # The first argument to `can` is the action you are giving the user 

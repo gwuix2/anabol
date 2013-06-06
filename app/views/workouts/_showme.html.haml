@@ -1,7 +1,22 @@
 - if @workout
   #showme
     %h4.muted
+      - if can? :update, @workout
+        .btn-group
+          %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              = link_to edit_profile_workout_path(@profile, @workout) do
+                %i.icon-pencil
+                Szerkesztés
+            %li
+              = link_to profile_workout_path(@profile, @workout), method: :delete, :data => { :confirm => 'Biztos vagy benne, hogy törlöd?' } do
+                %i.icon-trash
+                Törlés
       = @workout.name
+      /= link_to edit_profile_workout_path(@profile, @workout) do
+      /  %i.icon-pencil
       .pull-right
         = localize(@workout.mikor, :format => :short) if @workout.mikor
     %h5.muted
@@ -12,3 +27,5 @@
         = "--"
     %p
       = simple_format(@workout.description)
+
+

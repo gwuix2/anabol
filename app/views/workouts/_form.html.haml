@@ -1,8 +1,6 @@
 #wf
   .row-fluid
     .span8.offset2
-      %h2.pagination-centered
-        Új edzés
       .padding-top
         = simple_form_for([@profile, @workout], :html => { :class => 'form-horizontal' }) do |f|
           = f.error_notification
@@ -15,8 +13,10 @@
                 %span.add-on
                   %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
             = f.input :period_time, label: "Időtartam - percben"
-            = f.input :color, priority: "fehér", collection: [ "fehér", "kék", "fekete", "piros", "sárga", "zöld" ], label: "Jelölőszín", as: :radio_buttons
-            = f.input :template, label: "Mentés sablonként"
+            .row-fluid
+              .span3
+                = f.input :color, priority: "fehér", collection: [ "fehér", "kék", "fekete", "piros", "sárga", "zöld" ], label: "Jelölőszín", as: :radio_buttons
+            /= f.input :template, label: "Mentés sablonként"
             = f.input :description, label: "Edzés leírása", input_html: { class: 'span10' }
         
           .form-actions

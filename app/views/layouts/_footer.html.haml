@@ -2,11 +2,16 @@
   .span3
     %br/
     %p.muted
-      Anabolizmus.hu minden jog fenntartva.
+      Anabolizmus.hu
+      = link_to versions_path, class: "text-info" do
+        - if @version.v
+          = @version.v
+        - elsif @version.name
+          = truncate(@version.name, length: 10)
   .span3.offset6
     %br/
     %ul.unstyled
       %li
-        = link_to "Adatvédelmi nyilatkozat", "#"
+        = link_to "Adatvédelmi nyilatkozat", adatvedelem_path
       %li
-        = link_to "Felhasználási feltételek", "#"
+        = link_to "Felhasználási feltételek", feltetelek_path

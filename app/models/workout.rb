@@ -2,6 +2,10 @@ class Workout < ActiveRecord::Base
   attr_accessible :description, :mikor, :user_id, :template, :name, :period_time, :mikor_date, :color
   
   validates :mikor, :presence => true
+  validates_uniqueness_of :slug
+  
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   belongs_to :profile
 

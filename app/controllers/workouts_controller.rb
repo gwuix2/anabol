@@ -19,7 +19,7 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.js {}
@@ -29,7 +29,7 @@ class WorkoutsController < ApplicationController
 
 
   def edit
-    @workout = Workout.find(params[:id])
+    @workout = @profile.workouts.find(params[:id])
   end
 
 
@@ -48,11 +48,11 @@ class WorkoutsController < ApplicationController
   end
 
   def update
-    @workout = @profile.workouts(params[:id])
+    @workout = @profile.workouts.find(params[:id])
 
     respond_to do |format|
       if @workout.update_attributes(params[:workout])
-        format.html { redirect_to @workout, notice: 'Edzés sikeresen frissítve.' }
+        format.html { redirect_to root_path, notice: 'Edzés sikeresen frissítve.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

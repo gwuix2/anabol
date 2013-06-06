@@ -1,14 +1,29 @@
 Anabol::Application.routes.draw do
 
+
+  #match 'auth/:provider/callback', to: 'sessions#create'
+  #match 'auth/failure', to: redirect('/')
+  #match 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :versions,  :path => "/verziok"#, :only => [:edit, :update, :index, :new, :creae],
   resources :meta_reports
 
-  devise_for :users
+  devise_scope :user do
+    get '/felhasznalok/auth/:provider' => 'users/omniauth_callbacks#passthru'
+    get "/belepes" => "devise/sessions#new"
+    get "/regisztracio" => "devise/registrations#new"
+    match "/kilepes" => "devise/sessions#destroy"
+  end
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "/meta", to: "static_pages#meta"
+  get "/adatvedelem", to: "static_pages#adatvedelem"
+  get "/feltetelek", to: "static_pages#feltetelek"
 
-  resources :profiles, :only => [:show, :edit, :update], :path => "/" do
-     resources :sizes
-     resources :workouts
+  resources :profiles, :only => [:show, :edit, :update], :path => "/a" do
+     resources :sizes, :path => "meres"
+     resources :workouts, :path => "edzes"
   end
 
   root :to => "static_pages#home"

@@ -1,3 +1,3 @@
 jQuery ->
   $(".datatable").dataTable 
-      oLanguage: sUrl: "dt_hungarian.txt"
+      oLanguage: sUrl: "/dt_hungarian.txt"

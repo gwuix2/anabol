@@ -30,6 +30,8 @@ group :assets do
   gem 'bootstrap-datetimepicker-rails'
 end
 
+gem 'rails-i18n'
+gem 'certified'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'gon'
@@ -38,7 +40,7 @@ gem 'ajaxify_rails'
 gem 'jquery-rails'
 gem "cancan"
 gem "simple_form"
-gem "devise"
+gem 'devise'
 gem "btce-api"
 gem 'haml-rails'
 gem "rmagick"
