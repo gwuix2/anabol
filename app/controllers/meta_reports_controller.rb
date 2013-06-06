@@ -1,8 +1,8 @@
 # coding: utf-8
 class MetaReportsController < ApplicationController
-  # GET /meta_reports
-  # GET /meta_reports.json
-before_filter :get_user
+  load_and_authorize_resource
+
+  before_filter :get_user
 
   def index
     @meta_reports = MetaReport.all

@@ -3,11 +3,11 @@
 en:
   devise:
     confirmations:
-      confirmed: "A fiókodat sikeresen megerősítetted. Most már be vagy jelentkezve."
-      send_instructions: "Nemsokára kapsz egy email-t amiben megtalálod, hoygan aktiváld a felhasználód."
-      send_paranoid_instructions: "Ha az email címed szerepel az adatbázisunkban, nemsokára kapni fogsz email-t arról, hogyan aktiváld a felhasználód."
+      confirmed: "Your account was successfully confirmed. You are now signed in."
+      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes."
     failure:
-      already_authenticated: "Már be vagy jelentkezve."
+      already_authenticated: "You are already signed in."
       inactive: "Your account was not activated yet."
       invalid: "Invalid email or password."
       invalid_token: "Invalid authentication token."
@@ -18,11 +18,11 @@ en:
       unconfirmed: "You have to confirm your account before continuing."
     mailer:
       confirmation_instructions:
-        subject: "Megerősítési utasítások"
+        subject: "Confirmation instructions"
       reset_password_instructions:
-        subject: "Jelszó  utasítások"
+        subject: "Reset password instructions"
       unlock_instructions:
-        subject: "Feloldási utasítások"
+        subject: "Unlock Instructions"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."

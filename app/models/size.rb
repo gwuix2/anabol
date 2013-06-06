@@ -3,7 +3,7 @@ class Size < ActiveRecord::Base
 
   validates :mikor, :presence => true
 
-  belongs_to :user
+  belongs_to :profile
 
   after_create :checkme
   before_save :checkthetime
