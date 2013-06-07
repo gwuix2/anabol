@@ -36,11 +36,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'gon'
 gem 'friendly_id'
-gem 'ajaxify_rails'
 gem 'jquery-rails'
 gem "cancan"
 gem "simple_form"
-gem 'devise'
+gem 'devise', '2.1.2'
 gem "btce-api"
 gem 'haml-rails'
 gem "rmagick"

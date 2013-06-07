@@ -11,12 +11,12 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_one :profile, :dependent => :destroy
   
-  after_create :myprofile
+  after_save :myprofile
 
   def myprofile
     if self.profile
     else
-      Profile.create!(user_id: self.id, user_name: self.name)
+      Profile.create!(user_id: self.id)
     end
   end
 
