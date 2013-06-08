@@ -21,6 +21,7 @@ Anabol::Application.routes.draw do
   get "/adatvedelem", to: "static_pages#adatvedelem"
   get "/feltetelek", to: "static_pages#feltetelek"
 
+  #resources :users
   resources :profiles, :only => [:show, :edit, :update], :path => "/a" do
      resources :sizes, :path => "meres"
      resources :workouts, :path => "edzes"

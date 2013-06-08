@@ -5,6 +5,7 @@
       = f.error_notification
       .form-inputs
         = f.input :email, :required => true, :autofocus => true
+        = f.input :name, :required => true, label: "Felhasználónév"
         = f.input :password, :required => true, label: "jelszó"
         = f.input :password_confirmation, :required => true, label: "jelszó ellenőrzés"
         = f.button :submit, "Mentés", class: "btn btn-primary btn-large"

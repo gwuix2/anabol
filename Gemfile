@@ -32,15 +32,12 @@ end
 
 gem 'rails-i18n'
 gem 'certified'
-gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'gon'
 gem 'friendly_id'
 gem 'jquery-rails'
 gem "cancan"
 gem "simple_form"
-gem 'devise', '2.1.2'
-gem "btce-api"
+gem 'devise'
 gem 'haml-rails'
 gem "rmagick"
 gem 'carrierwave'
