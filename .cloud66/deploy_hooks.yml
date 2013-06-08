@@ -1,0 +1,9 @@
+production:
+  after_rails:
+    - source: /.cloud66/files/open_folder_permissions.sh
+      destination: /tmp/open_folder_permissions.sh
+      target: rails                
+      execute: true
+      run_on: all_servers
+      apply_during: all
+      sudo: true

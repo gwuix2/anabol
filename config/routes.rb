@@ -25,9 +25,9 @@ Anabol::Application.routes.draw do
   resources :profiles, :only => [:show, :edit, :update], :path => "/a" do
      resources :sizes, :path => "meres"
      resources :workouts, :path => "edzes"
-    member do
-      get 'image'
-    end
+    #member do
+    #  get 'image'
+    #end
   end
 
 
