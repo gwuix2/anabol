@@ -21,6 +21,8 @@
                 = render partial: "shared/flash_messages", flash: flash
                 #yield
                   = yield
+                - if current_user && current_user.admin?
+                  = render "shared/admin"
       #footer
         .container
           .content
