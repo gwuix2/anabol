@@ -43,5 +43,13 @@ class SizesController < ApplicationController
     end
   end
 
+  def destroy
+    @size = Size.find(params[:id])
+    @size.destroy
 
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Mérés törölve.' }
+      format.json { head :no_content }
+    end
+  end
 end

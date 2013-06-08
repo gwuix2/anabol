@@ -1,7 +1,7 @@
 - provide(:title, "Méréseim")
 %br/
 .row-fluid
-  .span10.offset1
+  .span12
     %table.datatable
       %thead
         %tr
@@ -51,3 +51,4 @@
               = size.vadli
             %td
               = link_to "Szerkesztés", edit_profile_size_path(@profile, size), class: "btn btn-link"
+              = link_to "Törlés", profile_size_path(@profile, size), method: :delete,  class: "btn btn-link"
