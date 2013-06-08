@@ -22,7 +22,8 @@
                 #yield
                   = yield
                 - if current_user && current_user.admin?
-                  = render "shared/admin"
+                  #admin-nav
+                    = render "shared/admin"
       #footer
         .container
           .content

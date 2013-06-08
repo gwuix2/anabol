@@ -1,10 +1,6 @@
-.navbar
-  .navbar-inner
-    %a.brand{:href => "#"} Title
+.navbar.navbar-inverse
+  .navbar-inner.navbar-inverse
+    %a.brand{:href => "#"} Admin
     %ul.nav
-      %li.active
-        %a{:href => "#"} Home
       %li
-        %a{:href => "#"} Link
-      %li
-        %a{:href => "#"} Link
+        = link_to "Meta-lista", meta_reports_path
