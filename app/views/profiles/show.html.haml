@@ -9,7 +9,7 @@
             = image_tag(@profile.image_url(:thumb), class: "profile-img")
           - else
             = image_tag('user.png')
-         = image_tag(@profile.image)
+        = image_tag(@profile.image)
       .span2
         = render "personal"
       .span4
