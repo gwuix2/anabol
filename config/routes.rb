@@ -25,7 +25,12 @@ Anabol::Application.routes.draw do
   resources :profiles, :only => [:show, :edit, :update], :path => "/a" do
      resources :sizes, :path => "meres"
      resources :workouts, :path => "edzes"
+    member do
+      get 'image'
+    end
   end
+
+
 
   root :to => "static_pages#home"
   # The priority is based upon order of creation:
