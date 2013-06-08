@@ -5,13 +5,13 @@ class WorkoutsController < ApplicationController
   
   load_and_authorize_resource
 
-  def index
-    @workouts = @profile.workouts.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @workouts }
-    end
-  end
+  #def index
+  #  @workouts = @profile.workouts.all
+  #  respond_to do |format|
+  #    format.html # index.html.erb
+  #    format.json { render json: @workouts }
+  #  end
+  #end
 
   def new
     @workout = @profile.workouts.new
