@@ -5,10 +5,10 @@
     .row-fluid
       .span2
         .profile-img
-          /- if @profile.image_url
-          /  = image_tag(@profile.image_url(:thumb), class: "profile-img")
-          /- else
-          /  = image_tag('user.png')
+          - if @profile.image_url
+            = image_tag(@profile.image_url(:thumb), class: "profile-img")
+          - else
+            = image_tag('user.png')
         /= image_tag(image_profile_path(@profile), :alt => "Avatar") if @profile.image?
       .span2
         = render "personal"
