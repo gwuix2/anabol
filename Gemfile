@@ -30,6 +30,7 @@ group :assets do
   gem 'bootstrap-datetimepicker-rails'
 end
 
+gem 'seed-fu', '~> 2.2.0' 
 gem 'rails-i18n'
 gem 'certified'
 gem 'omniauth-facebook'

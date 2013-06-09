@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :get_user
+  helper_method :get_profile
   before_filter :set_locale, :version_control
   
   def set_locale
@@ -16,10 +17,14 @@ class ApplicationController < ActionController::Base
   end
 
   def get_user
-    @user ||= current_user
-    @user ||= User.find_by_id(@profile.user_id) if @profile
-    @profile ||= current_user.profile if current_user
-    @profile ||= @user.profile if @user
+    #@user ||= current_user
+    #@user ||= User.find_by_id(@profile.user_id) if @profile
+    #@profile ||= current_user.profile if current_user
+    #@profile ||= @user.profile if @user
+  end
+
+    def get_profile
+    @profile = Profile.find(params[:profile_id])
   end
 
   def version_control

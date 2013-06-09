@@ -16,10 +16,18 @@ module ApplicationHelper
 
   def last_valid(attr)
     if Size.where(:profile_id => @profile.id).collect(&(attr)).compact.last
-      Size.where(:profile_id => @profile.id).collect(&(attr)).compact.last
+      Size.where(:profile_id => @profile.id).order("mikor ASC").collect(&(attr)).compact.last
     else
       '--'
     end
+  end
+
+
+  def changed_by(attr)
+    @lv_0 = last_valid(attr)
+    @lv_1 = Size.where(:profile_id => @profile.id).order("mikor ASC").collect(&(attr)).compact.last(2) - [last_valid(attr)]
+    @lv_last = @lv_0.to_i - @lv_1.first.to_i
+    @lv_last
   end
 
   def kg(value)
@@ -46,5 +54,6 @@ module ApplicationHelper
   def ido(ido)
     ido.year.to_s + "-" + ido.month.to_s + "-" +  ido.day.to_s
   end
+
 
 end

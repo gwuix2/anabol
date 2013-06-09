@@ -1,7 +1,7 @@
 # coding: utf-8
 class SizesController < ApplicationController
   
-  before_filter :get_user
+  before_filter :get_profile
 
   load_and_authorize_resource
 

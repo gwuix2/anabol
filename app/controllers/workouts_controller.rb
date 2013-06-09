@@ -1,7 +1,7 @@
 # coding: utf-8
 class WorkoutsController < ApplicationController
 
-  before_filter :get_user
+  before_filter :get_profile
   
   load_and_authorize_resource
 
@@ -13,12 +13,16 @@ class WorkoutsController < ApplicationController
   #  end
   #end
 
+  def get_profile
+    @profile = Profile.find(params[:profile_id])
+  end
+
   def new
     @workout = @profile.workouts.new
   end
 
   def show
-    @workout = Workout.find(params[:id])
+    @workout = @profile.workouts.find(params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
