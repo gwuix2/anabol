@@ -1,4 +1,4 @@
-#! /usr/bin/env ruby
+#! /bin/sh
 #load environment variables
 source /var/.cloud66_env
 #assign desired permissions
