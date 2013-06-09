@@ -51,7 +51,7 @@ class ProfilesController < ApplicationController
     #end
 
     #workout calendar
-    @workout = @profile.workouts.last
+    @workout = @profile.workouts.order('mikor ASC').last
     @workouts = @profile.workouts.all
     @workouts_by_date = @workouts.group_by(&:mikor_date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today

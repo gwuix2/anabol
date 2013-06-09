@@ -16,7 +16,7 @@ module ApplicationHelper
 
   def last_valid(attr)
     if Size.where(:profile_id => @profile.id).collect(&(attr)).compact.last
-      Size.where(:profile_id => @profile.id).order("mikor ASC").collect(&(attr)).compact.last
+      Size.where(:profile_id => @profile.id).order("mikor DESC").collect(&(attr)).compact.last
     else
       '--'
     end
@@ -24,10 +24,20 @@ module ApplicationHelper
 
 
   def changed_by(attr)
-    @lv_0 = last_valid(attr)
-    @lv_1 = Size.where(:profile_id => @profile.id).order("mikor ASC").collect(&(attr)).compact.last(2) - [last_valid(attr)]
-    @lv_last = @lv_0.to_i - @lv_1.first.to_i
-    @lv_last
+    @ch_0 = last_valid(attr)
+    @ch_1 = Size.where(:profile_id => @profile.id).order("mikor DESC").collect(&(attr)).compact.last(2) - [last_valid(attr)]
+    @ch_last = @ch_0.to_i - @ch_1.first.to_i
+    #classes = []
+    #classes << "text-info" if @ch_last > 0
+    #classes << "text-error" if @ch_last < 0
+    content_tag :span, class: "muted" do
+      if @ch_last == 0
+      elsif @ch_last > 0
+       "+" + @ch_last.to_s + "cm"
+      else
+        @ch_last.to_s + "cm"
+      end
+    end
   end
 
   def kg(value)
