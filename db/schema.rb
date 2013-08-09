@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606130000) do
+ActiveRecord::Schema.define(:version => 20130809112854) do
 
   create_table "meta_reports", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20130606130000) do
     t.string   "image"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "profile_id"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.boolean  "public"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "profile_id"
   end
 
@@ -44,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20130606130000) do
     t.text     "nutrition"
     t.boolean  "private"
     t.string   "slug"
+    t.string   "cover_image"
   end
 
   create_table "sizes", :force => true do |t|

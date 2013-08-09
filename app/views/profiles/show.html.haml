@@ -3,28 +3,36 @@
 - if myprofile?(@profile)
   #profile
     .row-fluid
-      .span2
-        .profile-img
-          - if @profile.image_url
-            = image_tag(@profile.image_url(:thumb), class: "profile-img")
-          - else
-            = image_tag('user.png')
+      .span12.cover-image
+        = image_tag(@profile.cover_image_url(:cover))
+        - if @profile.image_url
+          = image_tag(@profile.image_url(:thumb), class: "profile-img img-polaroid")
+        - else
+          = image_tag('user.png', class: "profile-img")
+        /= link_to "Borítókép hozzáadása", "#", class: "btn pull-right cover-image-link" if own_profile?(@profile)
         /= image_tag(image_profile_path(@profile), :alt => "Avatar") if @profile.image?
-      .span2
-        = render "personal"
-      .span4
-        %br/
-        %br/
-        = high_chart("chart_tzs", @ts)
-      .span4
-        %h4.muted
-          Magamról
-        .well.description
-          = @profile.description
-    
-    .row-fluid
+    /  .span2
+    /    = render "personal"
+    /  .span4
+    /    %br/
+    /    %br/
+    /    = high_chart("chart_tzs", @ts)
+    /  .span4
+    /    %h4.muted
+    /      Magamról
+    /    .well.description
+    /      = @profile.description
+    /
+    /.row-fluid
+    /  %ul.nav.nav-tabs.profile-nav2
+    /    %li{:class => "#{"active" if current_page?(@profile)}"}
+    /      = link_to "Profil", "#"
+    /    %li
+    /      = link_to "Fényképek", "#"
+    .row-fluid.profile-body
       .span5
         = render "calendar"
+        = render "pictures"
     
     
       .span7

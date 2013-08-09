@@ -12,6 +12,9 @@
     = yield(:head)
   %body
     #wrap
+      /- if current_user && current_user.admin?
+      /  admin-nav
+      /    = render "shared/admin"
       = render 'layouts/nav'
       #main{:role => "main"}
         .container
@@ -21,9 +24,6 @@
                 = render partial: "shared/flash_messages", flash: flash
                 #yield
                   = yield
-                - if current_user && current_user.admin?
-                  #admin-nav
-                    = render "shared/admin"
       #footer
         .container
           .content

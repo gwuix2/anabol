@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  before_filter :get_user
+  before_filter :get_profile
 
   def home
     if user_signed_in?
@@ -24,7 +24,7 @@ class StaticPagesController < ApplicationController
 
   def meta
     @no_nav = true
-    @meta_report = @profile.meta_reports.new if @profile
+    @meta_report = current_user.profile.meta_reports.new
   end
 
   def adatvedelem

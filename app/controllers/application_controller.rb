@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
     #@profile ||= @user.profile if @user
   end
 
-    def get_profile
-    @profile = Profile.find(params[:profile_id])
+  def get_profile
+    @profile = Profile.find(params[:profile_id]) if params[:profile_id]
   end
 
   def version_control

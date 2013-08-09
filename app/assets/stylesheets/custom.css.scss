@@ -1,12 +1,10 @@
 @import "bootstrap";
-@import "bootstrap-responsive";
 @import 'bootstrap-datetimepicker';
 
 
 @mixin standard {
       background-color: #fdfdfd;
       border: 1px solid #E8E8E8;
-      border-radius: 6px;
       padding: 6px;
 }
 
@@ -42,7 +40,7 @@ body {
 }
 
 .profile-nav {
-	border-bottom: 1px solid  #00a7ca;
+	border-bottom: 3px solid  #0096ff;
   h3 {
     margin-bottom: 0;
   }
@@ -59,7 +57,10 @@ body {
 
 .profile-img {
     margin: 3px 5px 5px 0px;
-    padding: 5px;
+    margin: 10px 5px 5px 10px;
+    position: absolute;
+    left: 0;
+    top: 2px;
 }
 
 .padding-left5 {
@@ -308,7 +309,109 @@ body {
 
 
 #admin-nav {
-   position: absolute;
-   bottom: 80px;
+   position: fixed;
+   top: 42px;
 
+}
+
+.cover-image {
+  background-color: #eee;
+  max-height: 170px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+.cover-image-link {
+  margin: 5px 5px 0 0;
+  opacity: .4;
+  &:hover {
+    opacity: .95;
+  }
+}
+
+#profile {
+  background-color: #fff;
+}
+
+.profile-body {
+  margin-top: 20px;
+}
+
+.ul-workout {
+  display: inline-table;
+}
+
+.profile-nav2 {
+  padding-left: 240px;
+  background: #eee;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.top-marker {
+
+}
+
+.standard-header {
+  background-color: #fafafa;
+  border-bottom: 0;
+}
+
+.navbar .brand {
+  font-size: 27px;
+}
+
+.focim {
+  font-family: Helvetica;
+  color: #0096ff;
+  font-weight: 500;
+  font-size: 100px;
+  margin-top: 100px;
+  line-height: 1;
+}
+
+
+.circle {
+  height: 15px;
+  width: 15px;
+  border: 2px solid #234e5e;
+  display: inline-block;
+  /* In this case we use half of the
+   width and height as radius. */
+
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+}
+
+.circle-white {
+    @extend .circle;
+    background-color: #fff;
+}
+
+.circle-red {
+    @extend .circle;
+    background-color: #cf0101;
+}
+
+.circle-blue {
+    @extend .circle;
+    background-color: #0096ff;
+}
+
+.circle-yellow {
+    @extend .circle;
+    background-color: #ffde00;
+}
+
+.circle-green {
+    @extend .circle;
+    background-color: #01cf45;
+}
+
+.circle-black {
+    @extend .circle;
+    background-color: #111;
 }

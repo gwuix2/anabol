@@ -26,17 +26,20 @@ module ApplicationHelper
   def changed_by(attr)
     @ch_0 = last_valid(attr)
     @ch_1 = Size.where(:profile_id => @profile.id).order("mikor DESC").collect(&(attr)).compact.last(2) - [last_valid(attr)]
-    @ch_last = @ch_0.to_i - @ch_1.first.to_i
-    #classes = []
-    #classes << "text-info" if @ch_last > 0
-    #classes << "text-error" if @ch_last < 0
-    content_tag :span, class: "muted" do
-      if @ch_last == 0
-      elsif @ch_last > 0
-       "+" + @ch_last.to_s + "cm"
-      else
-        @ch_last.to_s + "cm"
+    if @ch_1
+      @ch_last = @ch_0.to_i - @ch_1.first.to_i
+      #classes = []
+      #classes << "text-info" if @ch_last > 0
+      #classes << "text-error" if @ch_last < 0
+      content_tag :span, class: "mutedp" do
+        if @ch_last == 0
+        elsif @ch_last > 0
+         "+" + @ch_last.to_s + "cm"
+        else
+          @ch_last.to_s + "cm"
+        end
       end
+    else
     end
   end
 
