@@ -3,5 +3,5 @@ class Photo < ActiveRecord::Base
 
   belongs_to :profile
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, PhotoUploader
 end

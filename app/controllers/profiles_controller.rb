@@ -9,6 +9,9 @@ class ProfilesController < ApplicationController
   	@profile = Profile.find(params[:id])
     @sizes_index = @profile.sizes.order("created_at DESC").first(5)
     @sizes = Size.where(:user_id => @profile.user.id).order("mikor ASC").all
+
+    @new_photo = @profile.photos.new
+    @photos = @profile.photos.last(7)
     #graphs
     #@testsuly = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testsuly).compact
     #@testzsir = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testzsir).compact

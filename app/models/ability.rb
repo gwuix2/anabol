@@ -10,8 +10,9 @@ class Ability
     else
       can :read, :all
       can :manage, Profile, :user_id => user.id
-      can :manage, Size, :user_id => user.id
-      can :manage, Workout, :user_id => user.id
+      can :manage, Size, :profile_id => user.profile.id
+      can :manage, Workout, :profile_id => user.profile.id
+      can :manage, Photo, :profile_id => user.profile.id
       cannot :manage, Version
       can :read, Version
     end

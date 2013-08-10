@@ -39,7 +39,7 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = @profile.workouts.new(params[:workout])
-    @workout.user_id = current_user.id
+    #@workout.user_id = current_user.id
     respond_to do |format|
       if @workout.save
         format.html { redirect_to root_path, notice: 'Edzés sikeresen létrehozva.' }

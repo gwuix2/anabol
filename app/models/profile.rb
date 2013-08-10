@@ -10,7 +10,8 @@ class Profile < ActiveRecord::Base
   has_many :sizes, :dependent => :destroy
   has_many :workouts, :dependent => :destroy
   has_many :meta_reports
-
+  has_many :photos, :dependent => :destroy
+  
   mount_uploader :image, ImageUploader
   mount_uploader :cover_image, ImageUploader
 end

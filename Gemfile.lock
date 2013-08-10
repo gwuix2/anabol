@@ -82,6 +82,9 @@ GEM
     journey (1.0.4)
     jquery-datatables-rails (1.11.2)
       jquery-rails
+    jquery-fileupload-rails (0.4.1)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -190,7 +193,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-datetimepicker-rails
-  bootstrap-sass
+  bootstrap-sass (~> 2.3.2.1)
   cancan
   carrierwave
   certified
@@ -200,6 +203,7 @@ DEPENDENCIES
   friendly_id
   haml-rails
   jquery-datatables-rails
+  jquery-fileupload-rails
   jquery-rails
   jquery-ui-rails
   lazy_high_charts

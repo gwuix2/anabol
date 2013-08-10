@@ -2,6 +2,15 @@
 .standard.standard-header
   %strong.muted  Képek
   .pull-right
-    = link_to "#" do
-      %i.icon-plus
+    = link_to "#myModal", "data-toggle" => "modal", title: "Új kép hozzáadása" do
+      .btn
+        %i.icon-plus
+        Új kép
 .standard
+  .pictures
+    - if @photos.any?
+      - @photos.each do |photo|
+        = image_tag(photo.image_url(:thumb), class: "photo-thumb") if photo.image_url
+    - else
+      %strong.pagination-centered.muted Tölts fel képeket.
+

@@ -36,6 +36,7 @@ body {
 
 #main {
 	padding-top: 60px;
+  padding-bottom: 10px;
 	color: #111;
 }
 
@@ -57,7 +58,7 @@ body {
 
 .profile-img {
     margin: 3px 5px 5px 0px;
-    margin: 10px 5px 5px 10px;
+    margin: 30px 5px 5px 10px;
     position: absolute;
     left: 0;
     top: 2px;
@@ -314,9 +315,9 @@ body {
 
 }
 
-.cover-image {
+.row-fluid .cover-image {
   background-color: #eee;
-  max-height: 170px;
+  min-height: 200px;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -326,6 +327,7 @@ body {
 .cover-image-link {
   margin: 5px 5px 0 0;
   opacity: .4;
+
   &:hover {
     opacity: .95;
   }
@@ -344,6 +346,7 @@ body {
 }
 
 .profile-nav2 {
+  margin-bottom: 0;
   padding-left: 240px;
   background: #eee;
   border-left: 1px solid #ddd;
@@ -357,6 +360,9 @@ body {
 .standard-header {
   background-color: #fafafa;
   border-bottom: 0;
+  min-height: 28px;
+  line-height: 28px;
+  padding-bottom: 4px;
 }
 
 .navbar .brand {
@@ -374,8 +380,8 @@ body {
 
 
 .circle {
-  height: 15px;
-  width: 15px;
+  height: 13px;
+  width: 13px;
   border: 2px solid #234e5e;
   display: inline-block;
   /* In this case we use half of the
@@ -414,4 +420,13 @@ body {
 .circle-black {
     @extend .circle;
     background-color: #111;
+}
+
+.pictures {
+  padding-left: 14px;
+}
+
+.photo-thumb {
+  display: inline;
+  margin-top: 4px;
 }

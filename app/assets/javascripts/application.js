@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= requiry jquery-fileupload/basic
 //= require dataTables/jquery.dataTables
 //= require bootstrap-datetimepicker
 //= require bootstrap

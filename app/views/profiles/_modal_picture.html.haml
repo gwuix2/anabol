@@ -1,0 +1,16 @@
+#myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel Képfeltöltés
+  .modal-body
+    = simple_form_for([@profile, @new_photo], :html => { :class => 'form-horizontal' }) do |f|
+      .form-inputs
+        = f.input :image, label: "kép"
+        = f.input :name, label: "Kép neve"
+      .form-actions
+        = f.submit "Mentés", class: "btn btn-primary btn-large"
+        = link_to "Mégse", "#", class: "btn btn-large", "data-dismiss" => "modal", id: "close-size"
+
+
+/%button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+/%button.btn.btn-primary Save changes

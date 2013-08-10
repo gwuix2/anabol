@@ -22,11 +22,12 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
+  gem 'bootstrap-sass', '~> 2.3.2.1'
   gem 'therubyracer'
   gem 'execjs'
   gem 'jquery-datatables-rails'
   gem 'jquery-ui-rails'
+  gem 'jquery-fileupload-rails'
   gem 'bootstrap-datetimepicker-rails'
 end
 
