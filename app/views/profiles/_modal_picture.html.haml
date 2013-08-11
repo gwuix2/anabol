@@ -5,12 +5,12 @@
   .modal-body
     = simple_form_for([@profile, @new_photo], :html => { :class => 'form-horizontal' }) do |f|
       .form-inputs
-        = f.input :image, label: "kép"
         = f.input :name, label: "Kép neve"
+        = f.input :image, label: "Képfájl"
+        = f.input :keszult, label: "Készült"
+        = f.input :description, label: "Leírás", :input_html => { rows: 3, class: "span10"}
+        = f.input :testsuly, label: "Testsúly(kg)"
+        = f.input :testzsir, label: "Testzsír(%)"
       .form-actions
-        = f.submit "Mentés", class: "btn btn-primary btn-large"
+        = f.submit "Feltöltés", class: "btn btn-primary btn-large"
         = link_to "Mégse", "#", class: "btn btn-large", "data-dismiss" => "modal", id: "close-size"
-
-
-/%button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-/%button.btn.btn-primary Save changes

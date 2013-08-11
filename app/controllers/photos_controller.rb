@@ -1,8 +1,16 @@
 # coding: UTF-8
 class PhotosController < ApplicationController
 
+  before_filter :get_profile
+
   def index
-  	#@photos = @profile.photos.all
+  	@photos = @profile.photos.order("created_at DESC")
+
+    #respond_to do |format|
+    #  format.html
+    #  format.js {}
+    #  format.json { render json: @photos }
+    #end
   end
 
 
@@ -13,7 +21,6 @@ class PhotosController < ApplicationController
     if @photo.save
       redirect_to root_path, notice: "Új mérés elmentve."
     else
-      render :new
     end
   end
 

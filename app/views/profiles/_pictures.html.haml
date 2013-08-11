@@ -10,7 +10,6 @@
   .pictures
     - if @photos.any?
       - @photos.each do |photo|
-        = image_tag(photo.image_url(:thumb), class: "photo-thumb") if photo.image_url
+        = image_tag(photo.image_url(:thumb), class: "photo-thumb", title: photo.name) if photo.image_url
     - else
       %strong.pagination-centered.muted Tölts fel képeket.
-

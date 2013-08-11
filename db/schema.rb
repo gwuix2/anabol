@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130809112854) do
+ActiveRecord::Schema.define(:version => 20130811101318) do
 
   create_table "meta_reports", :force => true do |t|
     t.string   "name"
@@ -27,9 +27,13 @@ ActiveRecord::Schema.define(:version => 20130809112854) do
     t.string   "name"
     t.string   "image"
     t.boolean  "public"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "profile_id"
+    t.text     "description"
+    t.integer  "testsuly"
+    t.integer  "testzsir"
+    t.date     "keszult"
   end
 
   create_table "profiles", :force => true do |t|
