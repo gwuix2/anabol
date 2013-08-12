@@ -1,3 +1,11 @@
+- if @profile && @no_nav == nil
+  .row-fluid
+    .span12
+      .profile-nav
+        .row-fluid
+          .span6
+            %h1
+              = link_to @profile.user_name , @profile if @profile.user_name
 .row-fluid
   .span12.cover-image
     = image_tag(@profile.cover_image_url(:cover)) if @profile.cover_image_url

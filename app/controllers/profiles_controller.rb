@@ -78,6 +78,17 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def destroy
+    @profile = Profile.find(params[:id])
+    @user = User.find_by_id(@profile.user_id)
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to users_path, notice: 'Profil törölve.' }
+      format.json { head :no_content }
+    end
+  end
+
   #def image
   #  @profile = Profile.find(params[:id])
   #  send_file "#{Rails.root}/tmp/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}",:disposition => 'inline', :type=>"application/jpg", :x_sendfile=>true

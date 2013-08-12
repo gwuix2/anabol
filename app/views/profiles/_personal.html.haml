@@ -1,28 +1,28 @@
-.muted
-  %table.table-condensed
-    %caption
-      %h4.pull-left.padding-left5
-        Profil
-    %thead
-    %tbody
-      %tr
-        %td Név
-        %td= @profile.real_name
-      %tr
-        %td Szül.
-        %td= @profile.date_of_birth
-      %tr
-        %td Város
-        %td= @profile.varos
-      %tr
-        %td Edzőterem
-        %td= @profile.gym
-      %tr
-        %td Nem
-        %td= @profile.nem2
-      %tr
-        %td Magasság
-        %td= cm(@profile.magassag)
-      %tr
-        %td Sportág
-        %td= @profile.sport
+.row-fluid
+  .span6
+    %table.table-condensed
+      %tbody
+        %tr
+          %td Név
+          %td= @profile.real_name
+        %tr
+          %td Szül.
+          %td= @profile.date_of_birth
+        %tr
+          %td Város
+          %td= @profile.varos
+        %tr
+          %td Edzőterem
+          %td= @profile.gym
+        %tr
+          %td Nem
+          %td= @profile.nem2
+        %tr
+          %td Magasság
+          %td= cm(@profile.magassag)
+        %tr
+          %td Sportág
+          %td= @profile.sport
+  .span6
+    %p
+      = @profile.description

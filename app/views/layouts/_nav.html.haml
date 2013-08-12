@@ -16,7 +16,7 @@
               = link_to "Meta", meta_path
         %ul.nav.pull-right
           - unless user_signed_in?
-            %li
+            %li{:class => "#{'active' if current_page?(regisztracio_path)}"}
               = link_to "Regisztráció", regisztracio_path
             %li{:class => "#{'active' if current_page?(new_user_session_path)}", id: "login-link"}
               = link_to "Belépés", "#"

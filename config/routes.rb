@@ -20,9 +20,10 @@ Anabol::Application.routes.draw do
   get "/meta", to: "static_pages#meta"
   get "/adatvedelem", to: "static_pages#adatvedelem"
   get "/feltetelek", to: "static_pages#feltetelek"
+  get "/users", to: "static_pages#users"
 
   #resources :users
-  resources :profiles, :only => [:show, :edit, :update], :path => "/a" do
+  resources :profiles, :only => [:show, :edit, :update, :destroy], :path => "/a" do
      resources :sizes, :path => "meres"
      resources :workouts, :path => "edzes"
      resources :photos, :path => "kepek"

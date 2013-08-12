@@ -2,10 +2,11 @@
 .standard.standard-header
   %strong.muted  Képek
   .pull-right
-    = link_to "#myModal", "data-toggle" => "modal", title: "Új kép hozzáadása" do
-      .btn
-        %i.icon-plus
-        Új kép
+    - if @profile == current_user.profile
+      = link_to "#myModal", "data-toggle" => "modal", title: "Új kép hozzáadása" do
+        .btn
+          %i.icon-plus
+          Új kép
 .standard
   .pictures
     - if @photos.any?

@@ -1,25 +1,38 @@
 = render "profiles/profile_nav"
 - if myprofile?(@profile)
-  %br/
-  #myCarousel.carousel.slide
-    /%ol.carousel-indicators
-    /  %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
-    /  %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
-    /  %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
-    / Carousel items
-    .carousel-inner
-      - @photos.each_with_index do |photo, index|
-        .item{ class: "#{ "active" if index == 0 }"}
-          = image_tag(photo.image_url, class: "carousel-photo")
-          .carousel-caption
-            %h1 photo.name
-            %p photo.description
-      /.active.item …
-      /.item …
-      /.item …
-    / Carousel nav
-    %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} ‹
-    %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} ›
+  - if @profile.photos.any?
+    %br/
+    #myCarousel.carousel.slide
+      /%ol.carousel-indicators
+      /  %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+      /  %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+      /  %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+      / Carousel items
+      .carousel-inner
+        - @photos.each_with_index do |photo, index|
+          .item{ class: "#{ "active" if index == 0 }"}
+            = image_tag(photo.image_url, class: "carousel-photo")
+            .carousel-caption
+              %h2.muted=photo.name
+              %p=photo.description
+              %h5.muted.pagination-centered.photo-date
+                = photo.keszult
+              .photo-data
+                %h5.muted Tzs
+                = pc(photo.testzsir)
+                %h5.muted Ts
+                = kg(photo.testsuly)
+        /.active.item …
+        /.item …
+        /.item …
+      / Carousel nav
+      - if @profile.photos.count < 2
+      - else
+        %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} ‹
+        %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} ›
+  - else
+    %h2.muted.pagination-centered
+      Nincsenek fényképek.
 - else
   = render "profiles/private"
 

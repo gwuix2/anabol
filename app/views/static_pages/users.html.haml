@@ -1,0 +1,17 @@
+.row-fluid
+  .span12
+    %table.table
+      %thead
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td
+              = user.profile.user_name
+            %td
+              = user.profile.slug
+            %td
+              = user.profile.created_at
+            %td
+              = link_to user.profile, method: :delete, :data => { :confirm => 'Biztos vagy benne, hogy törlöd?' } do
+                %i.icon-trash
+                Törlés

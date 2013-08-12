@@ -3,6 +3,8 @@ class PhotosController < ApplicationController
 
   before_filter :get_profile
 
+  load_and_authorize_resource
+
   def index
   	@photos = @profile.photos.order("created_at DESC")
 

@@ -18,18 +18,18 @@ body {
 
 /* Szovegkijeloles */
     ::selection {
-    background:#00C5FF;
-    color:#555;
+    background:#0096ff;
+    color:#ddd;
     }
 
     ::-moz-selection {
-    background:#00C5FF;
-    color:#555;
+    background:#0096ff;
+    color:#ddd;
     }
 
     ::-webkit-selection {
-    background:#00C5FF;
-    color:#555;
+    background:#0096ff;
+    color:#ddd;
     }
 /*-----------------*/
 
@@ -57,11 +57,9 @@ body {
 }
 
 .profile-img {
-    margin: 3px 5px 5px 0px;
-    margin: 30px 5px 5px 10px;
     position: absolute;
-    left: 0;
-    top: 2px;
+    left: 10px;
+    bottom: -15px;
     z-index: 5;
 }
 
@@ -105,7 +103,6 @@ body {
 	background-color: #fdfdfd;
   border-radius: 4px;
   width: 100%;
-  margin-bottom: 4px;
 	strong {
 	color: #444;
     }
@@ -263,7 +260,6 @@ table.dataTable tr.even td.sorting_1 {
 .workout-wrapper {
     @include standard;
     min-height: 300px;
-    margin-bottom: 5px;
 }
 
 .well {
@@ -318,7 +314,7 @@ body {
 
 .row-fluid .cover-image {
   background-color: #eee;
-  min-height: 200px;
+  min-height: 300px;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -454,4 +450,45 @@ body {
 
 .modal-body {
   max-height: 510px;
+}
+
+.carousel-caption {
+}
+
+.photo-data {
+  position: absolute;
+  right: 20px;
+  bottom: 12px;
+  color: #fff;
+}
+
+.photo-date {
+  position: absolute;
+  right: 60px;
+  bottom: -1px;
+}
+
+.registration {
+  padding-left: 30px;
+}
+
+.personal {
+  color: #555;
+}
+
+.branding {
+  margin-top: 120px;
+  height: 170px;
+}
+
+.img-notepad {
+  height: 130px;
+  margin: 0 auto;
+  display: block;
+}
+
+.img-social {
+  height: 130px;
+  margin: 0 auto;
+  display: block;
 }

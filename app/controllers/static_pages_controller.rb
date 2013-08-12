@@ -32,4 +32,8 @@ class StaticPagesController < ApplicationController
 
   def feltetelek
   end
+
+  def users
+    @users = User.all
+  end
 end

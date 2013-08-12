@@ -10,7 +10,7 @@
           %br/
           .standard.standard-header
             %strong.muted
-              Grafikon
+              Testsúly Grafikon
           .standard
             = high_chart("chart_tzs", @ts)
       
@@ -18,8 +18,15 @@
         .span7
           .size-view
             = render "size_view"
+          %br/
           .workout-wrapper
             = render "workouts/showme"
+          %br/
+          .standard.standard-header
+            %strong.muted
+              Névjegy
+          .standard.personal
+            = render "personal"
 - else
   = render "private"
 
