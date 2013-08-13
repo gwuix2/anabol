@@ -21,9 +21,9 @@
             %li{:class => "#{'active' if current_page?(new_user_session_path)}", id: "login-link"}
               = link_to "Belépés", "#"
           - else
-            %li
+            %li{:class => "#{'active' if current_page?(new_profile_workout_path(current_user.profile))}"}
               = link_to "Új edzés", new_profile_workout_path(current_user.profile), id: "new-workout", class: "btn-link"
-            %li
+            %li{:class => "#{'active' if current_page?(new_profile_size_path(current_user.profile))}"}
               = link_to "Új mérés", new_profile_size_path(current_user.profile), id: "new-size", class: "btn-link"
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
