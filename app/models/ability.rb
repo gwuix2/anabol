@@ -5,6 +5,14 @@ class Ability
     # Define abilities for the passed in user here. For example:
    
     user ||= User.new # guest user (not logged in)
+
+    unless user.new_record?
+      can [:index, :create], Discussion
+      can :read, Discussion do |discussion|
+        discussion.can_participate?(user)
+      end
+    end
+    
     if user.admin?
       can :manage, :all
     else

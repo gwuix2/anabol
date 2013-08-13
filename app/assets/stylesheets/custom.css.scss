@@ -492,3 +492,24 @@ body {
   margin: 0 auto;
   display: block;
 }
+
+.message-thumb {
+  height: 50px;
+}
+
+.msg-body-short {
+  position: relative;
+  top: -6px;
+}
+
+.msg-body {
+  position: relative;
+  top: -7px;
+  left: -35px;
+}
+
+.hover-gray {
+  &:hover {
+    background-color: #eee;
+  }
+}

@@ -79,6 +79,11 @@ GEM
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.1)
+    inboxes (0.2.2)
+      cancan
+      devise
+      haml-rails
+      rails
     journey (1.0.4)
     jquery-datatables-rails (1.11.2)
       jquery-rails
@@ -199,6 +204,7 @@ DEPENDENCIES
   execjs
   friendly_id
   haml-rails
+  inboxes (~> 0.2.0)
   jquery-datatables-rails
   jquery-rails
   jquery-ui-rails

@@ -25,6 +25,9 @@
               = link_to "Új edzés", new_profile_workout_path(current_user.profile), id: "new-workout", class: "btn-link"
             %li{:class => "#{'active' if current_page?(new_profile_size_path(current_user.profile))}"}
               = link_to "Új mérés", new_profile_size_path(current_user.profile), id: "new-size", class: "btn-link"
+            %li{:class => "#{'active' if current_page?(discussions_path)}"}
+              = link_to discussions_path do
+                %i.icon-envelope
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 %i.icon-user

@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   
   after_create :make_my_profile
 
+  has_inboxes
+
   def make_my_profile
     Profile.create!(user_id: self.id, user_name: self.name )
   end

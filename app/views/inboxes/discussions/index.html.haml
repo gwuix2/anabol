@@ -1,0 +1,47 @@
+.row-fluid
+  .span10.offset1.standard.standard-header
+    %h1.muted
+      Üzenetek
+.row-fluid
+  .span4.offset1
+    .standard
+      - @discussions.each do |discussion|
+        .row-fluid.hover-gray
+          = link_to discussion do
+            - discussion.users.each do |user|
+              - unless user.id == current_user.id
+                .span4
+                  - if user.profile.image_url
+                    = image_tag(user.profile.image_url(:thumb), class: "message-thumb")
+                  - else
+                    = image_tag('user.png', class: "message-thumb")
+
+                .span8.msg-body
+                  %h5
+                    = user.profile.user_name
+                  .muted.msg-body-short
+                    = truncate(discussion.messages.last.body, length: 20, separator: " ")
+    .standard
+      = link_to "Új beszélgetés", new_discussion_path, class: "btn btn-primary btn-block"
+  .span6
+    .standard
+
+/     %table
+/       %tr
+/         %th Last message
+/         %th Members
+/         %th Unread
+/       - @discussions.each do |discussion|
+/         %tr
+/           %td
+/             = discussion.updated_at
+/           %td
+/             = link_to discussion.users.collect{|u| u[Inboxes::config.user_name]}.join(', '), discussion
+/           %td
+/             - if discussion.unread_for?(current_user)
+/               = pluralize(discussion.unread_messages_count_for(current_user), "message")
+/             - else
+/               No unread messages
+/     
+/     %p
+/       = link_to "Create new", new_discussion_path

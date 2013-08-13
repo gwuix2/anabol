@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130811101318) do
+ActiveRecord::Schema.define(:version => 20130813073924) do
+
+  create_table "discussions", :force => true do |t|
+    t.integer  "messages_count",   :default => 0
+    t.integer  "discussable_id"
+    t.string   "discussable_type"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.text     "body"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "meta_reports", :force => true do |t|
     t.string   "name"
@@ -77,6 +93,13 @@ ActiveRecord::Schema.define(:version => 20130811101318) do
     t.datetime "updated_at", :null => false
     t.date     "mikor"
     t.integer  "profile_id"
+  end
+
+  create_table "speakers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

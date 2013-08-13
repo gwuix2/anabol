@@ -22,6 +22,8 @@ Anabol::Application.routes.draw do
   get "/feltetelek", to: "static_pages#feltetelek"
   get "/users", to: "static_pages#users"
 
+  mount Inboxes::Engine => "/inboxes" 
+
   #resources :users
   resources :profiles, :only => [:show, :edit, :update, :destroy], :path => "/a" do
      resources :sizes, :path => "meres"
@@ -31,7 +33,6 @@ Anabol::Application.routes.draw do
     #  get 'image'
     #end
   end
-
 
 
   root :to => "static_pages#home"
