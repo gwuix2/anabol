@@ -1,5 +1,6 @@
 $("#messages").fadeOut('fast', function() {
   $('#messages').remove();
   $("#messages-wrap").append("<%= j render('show_discussion') %>");
+  $("#messages_box").scrollTop($("#messages_box")[0].scrollHeight);
   $("#messages").fadeIn('fast');
 });

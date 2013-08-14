@@ -30,6 +30,7 @@ group :assets do
   gem 'bootstrap-datetimepicker-rails'
 end
 
+gem "faye"
 gem "inboxes", "~> 0.2.2"
 gem 'seed-fu', '~> 2.2.0' 
 gem 'rails-i18n'

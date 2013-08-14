@@ -25,6 +25,13 @@
       = link_to "Új beszélgetés", new_discussion_path, class: "btn btn-primary btn-block"
   .span6#messages-wrap
     = render "show_discussion"
+
+:javascript
+  $(document).ready(function() {
+    $("#messages_box").scrollTop($("#messages_box")[0].scrollHeight);
+  });
+
+
 /     %table
 /       %tr
 /         %th Last message
