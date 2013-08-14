@@ -4,7 +4,7 @@
       Üzenetek
 .row-fluid
   .span4.offset1
-    .standard
+    .standard#discussions-box
       - @discussions.each do |discussion|
         .row-fluid.hover-gray{class: "#{ "unread" if discussion.unread_for?(current_user)}" }
           = link_to discussion, remote: true do
@@ -21,7 +21,7 @@
                     = user.profile.user_name
                   .muted.msg-body-short
                     = truncate(discussion.messages.last.body, length: 20, separator: " ")
-    .standard
+    .standard#new-discussion-link
       = link_to "Új beszélgetés", new_discussion_path, class: "btn btn-primary btn-block"
   .span6#messages-wrap
     = render "show_discussion"

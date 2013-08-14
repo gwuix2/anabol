@@ -5,6 +5,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
   def index
     @discussions = current_user.discussions.order("updated_at Desc")
     @discussion = current_user.discussions.order("updated_at Desc").first
+    @users = (current_user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", current_user.id]))
   end
 
   def show
@@ -42,10 +43,14 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
     end
 
     if @discussion.save
-      redirect_to @discussion, :notice => t("inboxes.discussions.started")
+      redirect_to discussions_url, :notice => t("inboxes.discussions.started")
     else
       render :action => "new"
     end
+  end
+
+  def update
+    redirect_to discussions_url
   end
 
   private

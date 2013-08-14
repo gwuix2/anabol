@@ -15,8 +15,8 @@
     /    = f.submit "Add"
     
     #messages_box
-      = render @discussion.messages, :as => :message
-    = render "inboxes/messages/form"
+      = render @discussion.messages, :as => :message if @discussion
+    = render "inboxes/messages/form" if @discussion
     
     /%p
     /  = link_to "Leave discussion", discussion_speaker_path(@discussion, @discussion.find_speaker_by_user(current_user)), :method => :delete unless @discussion.private?

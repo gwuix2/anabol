@@ -1,12 +1,8 @@
-= form_for @discussion do |f|
-  %p
-    = f.label :recipient_tokens
-    %br
-    = select_tag "discussion[recipient_tokens]", options_from_collection_for_select(@users, :id, Inboxes::config.user_name), :multiple => true, :size => "4"
+= simple_form_for @discussion do |f|
+  %h5.muted Címzett
+  = select_tag "discussion[recipient_tokens]", options_from_collection_for_select(@users, :id, Inboxes::config.user_name), :multiple => true, :size => "4"
   %p
     = f.fields_for :messages do |j|
-      = j.label :body
-      %br
-      = j.text_area :body
-
-  %p= f.submit
+      = j.input :body, label: "Üzenet", input_html: { rows: 5, class: "span12"}
+  .form-actions
+    = f.submit "Küldés", class: "btn btn-primary btn-large"
