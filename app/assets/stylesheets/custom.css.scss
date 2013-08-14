@@ -513,3 +513,12 @@ body {
     background-color: #eee;
   }
 }
+
+.unread {
+  background-color: #eaeaea;
+}
+
+#messages_box {
+  max-height: 400px;
+  overflow: auto;
+}

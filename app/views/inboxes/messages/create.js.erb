@@ -1,0 +1,3 @@
+$("#messages_box").append("<%= escape_javascript render(@message)%>");
+$("#messages_box").scrollTop($("#messages_box")[0].scrollHeight);
+$("#message_body").closest('form').find("input[type=text], textarea").val("");

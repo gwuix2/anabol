@@ -55,7 +55,7 @@ GEM
     coffee-script-source (1.6.3)
     daemons (1.1.9)
     debug_inspector (0.0.2)
-    devise (3.0.1)
+    devise (3.0.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -66,7 +66,7 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-    friendly_id (4.0.9)
+    friendly_id (4.0.10)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -104,7 +104,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
-    multi_json (1.7.8)
+    multi_json (1.7.9)
     multipart-post (1.2.0)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -204,7 +204,7 @@ DEPENDENCIES
   execjs
   friendly_id
   haml-rails
-  inboxes (~> 0.2.0)
+  inboxes (~> 0.2.2)
   jquery-datatables-rails
   jquery-rails
   jquery-ui-rails

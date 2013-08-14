@@ -1,8 +1,9 @@
 .message
   %p
-    %span
-      = message.user[Inboxes::config.user_name]
-      @
+    %small.muted
+      %strong
+        = message.user.profile.user_name
       = l(message.created_at)
-      =":"
-    %b= message.body
+  %p
+    %strong
+      = message.body

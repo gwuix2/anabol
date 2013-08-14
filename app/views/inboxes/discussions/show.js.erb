@@ -1,0 +1,5 @@
+$("#messages").fadeOut('fast', function() {
+  $('#messages').remove();
+  $("#messages-wrap").append("<%= j render('show_discussion') %>");
+  $("#messages").fadeIn('fast');
+});

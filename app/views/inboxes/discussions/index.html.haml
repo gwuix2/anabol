@@ -6,8 +6,8 @@
   .span4.offset1
     .standard
       - @discussions.each do |discussion|
-        .row-fluid.hover-gray
-          = link_to discussion do
+        .row-fluid.hover-gray{class: "#{ "unread" if discussion.unread_for?(current_user)}" }
+          = link_to discussion, remote: true do
             - discussion.users.each do |user|
               - unless user.id == current_user.id
                 .span4
@@ -23,9 +23,8 @@
                     = truncate(discussion.messages.last.body, length: 20, separator: " ")
     .standard
       = link_to "Új beszélgetés", new_discussion_path, class: "btn btn-primary btn-block"
-  .span6
-    .standard
-
+  .span6#messages-wrap
+    = render "show_discussion"
 /     %table
 /       %tr
 /         %th Last message

@@ -3,12 +3,18 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
   before_filter :load_and_check_discussion_recipient, :only => [:create, :new]
 
   def index
-    @discussions = current_user.discussions
-    @discussion = current_user.discussions.last
+    @discussions = current_user.discussions.order("updated_at Desc")
+    @discussion = current_user.discussions.order("updated_at Desc").first
   end
 
   def show
     @discussion.mark_as_read_for(current_user)
+
+    respond_to do |format|
+      format.html
+      format.js
+      format.json { render json: @discussion }
+    end
   end
 
   def new
@@ -36,7 +42,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
     end
 
     if @discussion.save
-      redirect_to show_discussion(@discussion), :notice => t("inboxes.discussions.started")
+      redirect_to @discussion, :notice => t("inboxes.discussions.started")
     else
       render :action => "new"
     end
