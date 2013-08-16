@@ -1,1 +1,1 @@
-faye: thin -R $RAILS_STACK_PATH/faye/config.ru start
+bundle exec rackup faye.ru -s thin -E production
