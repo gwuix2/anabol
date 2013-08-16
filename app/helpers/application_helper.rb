@@ -1,3 +1,4 @@
+# coding: UTF-8
 module ApplicationHelper
 	def bootstrap_class_for flash_type
       case flash_type
@@ -31,7 +32,7 @@ module ApplicationHelper
       #classes = []
       #classes << "text-info" if @ch_last > 0
       #classes << "text-error" if @ch_last < 0
-      content_tag :span, class: "mutedp" do
+      content_tag :span, class: "muted", title: "változás az utolsó mérés óta" do
         if @ch_last == 0
         elsif @ch_last > 0
          "+" + @ch_last.to_s + "cm"

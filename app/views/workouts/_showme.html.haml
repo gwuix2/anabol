@@ -3,6 +3,8 @@
     %h4.muted
       - if can? :update, @workout
         .btn-group
+          .btn.disabled
+            %i.icon-wrench
           %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             %span.caret
           %ul.dropdown-menu

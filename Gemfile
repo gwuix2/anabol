@@ -31,7 +31,7 @@ group :assets do
 end
 
 gem 'rack'
-gem "faye"
+gem 'faye', require: 'faye'
 gem "inboxes", "~> 0.2.2"
 gem 'seed-fu', '~> 2.2.0' 
 gem 'rails-i18n'

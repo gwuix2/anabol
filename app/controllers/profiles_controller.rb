@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
 
     @new_photo = @profile.photos.new
     @photos = @profile.photos.last(7)
+    @date ||= Date.today
     #graphs
     #@testsuly = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testsuly).compact
     #@testzsir = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testzsir).compact
