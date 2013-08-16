@@ -1,1 +1,1 @@
-faye: thin -R $RAILS_STACK_PATH/faye/config.ru start
+faye: thin -R $RAILS_STACK_PATH/faye/config.ru -E production start
