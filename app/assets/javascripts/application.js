@@ -19,6 +19,7 @@
 //= require highcharts/highcharts  
 //= require_tree .
 
+
 $(function(){
   $(".datetime").datetimepicker();
   $('#login-link').on('click', function() {
