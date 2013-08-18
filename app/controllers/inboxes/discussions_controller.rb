@@ -20,7 +20,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
 
   def new
     @users = []
-    User.find(:all, :conditions => ["id != ?", current_user.id]).each do |user|
+    User.order("uname Desc").find(:all, :conditions => ["id != ?", current_user.id]).each do |user|
         @users << user if current_user.profile.following?(user.profile)
     end
     @discussion.messages.build
@@ -48,7 +48,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
     if @discussion.save && @discussion.messages.any?
       redirect_to discussions_url, :notice => t("inboxes.discussions.started")
     else
-      render :action => "new"
+      redirect_to new_discussion_url
     end
   end
 

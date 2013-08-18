@@ -8,7 +8,6 @@ class Message < ActiveRecord::Base
   belongs_to :user
 
   validates :user, :discussion, :body, :presence => true
-
   after_save :mark_discussion_as_read
 
   def visible_for? user
