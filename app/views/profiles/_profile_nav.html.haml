@@ -28,3 +28,11 @@
       = link_to "Profil", @profile
     %li{:class => "#{"active" if current_page?(profile_photos_path(@profile))}", id: "photos-link"}
       = link_to "Fényképek", profile_photos_path(@profile)
+    %li.pull-right
+      = link_to following_profile_path(@profile) do
+        = @profile.followed_profiles.count
+        követés
+    %li.pull-right
+      = link_to followers_profile_path(@profile) do
+        = @profile.followers.count
+        követő

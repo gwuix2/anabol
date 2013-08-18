@@ -6,7 +6,8 @@
         - @users.each do |user|
           %tr
             %td
-              = user.profile.user_name
+              = link_to profile_path(user.profile) do
+                = user.profile.user_name
             %td
               = user.profile.slug
             %td

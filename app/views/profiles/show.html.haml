@@ -22,11 +22,7 @@
           .workout-wrapper
             = render "workouts/showme"
           %br/
-          .standard.standard-header
-            %strong.muted
-              Névjegy
-          .standard.personal
-            = render "personal"
+          = render "personal"
 - else
   = render "private"
 
@@ -34,3 +30,4 @@
 
 / Modal
 = render "modal_picture"
+= render "follow_form"

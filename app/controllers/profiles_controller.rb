@@ -90,6 +90,20 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def following
+    @title = "Following"
+    @profile = Profile.find(params[:id])
+    @profiles = @profile.followed_profiles.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @profile = Profile.find(params[:id])
+    @profiles = @profile.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
   #def image
   #  @profile = Profile.find(params[:id])
   #  send_file "#{Rails.root}/tmp/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}",:disposition => 'inline', :type=>"application/jpg", :x_sendfile=>true

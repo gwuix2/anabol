@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name
-  # attr_accessible :title, :body
+
   validates_uniqueness_of :name
+
   has_one :profile, :dependent => :destroy
-  
   after_create :make_my_profile
 
   has_inboxes
@@ -40,10 +40,4 @@ class User < ActiveRecord::Base
     end
     user
   end
-  #def get_a_name
-  #  if self.profile.user_name
-  #  else
-  #    self.profile.user_name = user.email.chomp[@]
-
-
 end

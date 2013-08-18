@@ -22,18 +22,29 @@ Anabol::Application.routes.draw do
   get "/feltetelek", to: "static_pages#feltetelek"
   get "/users", to: "static_pages#users"
 
-  mount Inboxes::Engine => "/inboxes" 
-
+  Inboxes::Engine.routes.draw do
+    resources :discussions, :except => :edit, :module => :inboxes do
+      resources :messages, :only => [:create, :index]
+      resources :speakers, :only => [:create, :destroy]
+      member do
+        post 'leave'
+      end
+    end
+  end
+  
+  resources :relationships, only: [:create, :destroy]
   #resources :users
   resources :profiles, :only => [:show, :edit, :update, :destroy], :path => "/a" do
      resources :sizes, :path => "meres"
      resources :workouts, :path => "edzes"
      resources :photos, :path => "kepek"
+    member do
+      get :following, :followers
+    end
     #member do
     #  get 'image'
     #end
   end
-
 
   root :to => "static_pages#home"
   # The priority is based upon order of creation:

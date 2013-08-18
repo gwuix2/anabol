@@ -258,8 +258,6 @@ table.dataTable tr.even td.sorting_1 {
 }
 
 .workout-wrapper {
-    @include standard;
-    min-height: 300px;
 }
 
 .well {
@@ -351,7 +349,7 @@ body {
   position: relative;
   top: -1px;
   a {
-    color: #666;
+    /*color: #111;*/
   }
 }
 
@@ -526,4 +524,20 @@ body {
 #discussions-box {
   max-height: 300px;
   overflow: auto;
+}
+
+.opaque {
+  opacity: .0;
+  -webkit-transition: opacity 400ms ease-in-out;
+  -moz-transition: opacity 400ms ease-in-out;
+  -ms-transition: opacity 400ms ease-in-out;
+  -o-transition: opacity 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
+}
+
+.opaque-wrap:hover .opaque {
+  opacity: .9;
+}
+
+.stats {
 }

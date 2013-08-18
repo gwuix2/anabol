@@ -36,11 +36,11 @@
                 - else
                   = User.find_by_id(current_user.id).name
               %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
-                %li
+                %li{:class => "#{'active' if current_page?(profile_path(current_user.profile))}"}
                   = link_to profile_path(current_user.profile) do
                     %i.icon-user
                     Profilom
-                %li
+                %li{:class => "#{'active' if current_page?(edit_profile_path(current_user.profile))}"}
                   = link_to edit_profile_path(current_user.profile) do
                     %i.icon-wrench
                     Beállítások
@@ -49,12 +49,12 @@
                 /  = link_to profile_workouts_path(current_user.profile) do
                 /    %i.icon-tag
                 /    Edzéseim
-                %li
+                %li{:class => "#{'active' if current_page?(profile_sizes_path(current_user.profile))}"}
                   = link_to profile_sizes_path(current_user.profile) do
                     %i.icon-resize-horizontal
                     Méréseim
                 %li.divider
-                %li
+                %li{:class => "#{'active' if current_page?(kilepes_path)}"}
                   = link_to "Kijelentkezés", kilepes_path, method: :delete, class: "muted"
     .container#login-container
       #login-box

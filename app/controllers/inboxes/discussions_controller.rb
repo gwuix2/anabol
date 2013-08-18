@@ -42,7 +42,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
       m.user = current_user
     end
 
-    if @discussion.save
+    if @discussion.save && @discussion.messages.any?
       redirect_to discussions_url, :notice => t("inboxes.discussions.started")
     else
       render :action => "new"

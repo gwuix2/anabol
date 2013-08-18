@@ -1,33 +1,40 @@
 - if @workout
-  #showme
-    %h4.muted
-      - if can? :update, @workout
-        .btn-group
-          .btn.disabled
-            %i.icon-wrench
-          %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              = link_to edit_profile_workout_path(@profile, @workout) do
-                %i.icon-pencil
-                Szerkesztés
-            %li
-              = link_to profile_workout_path(@profile, @workout), method: :delete, :data => { :confirm => 'Biztos vagy benne, hogy törlöd?' } do
-                %i.icon-trash
-                Törlés
-      = @workout.name
-      /= link_to edit_profile_workout_path(@profile, @workout) do
-      /  %i.icon-pencil
-      .pull-right
-        = localize(@workout.mikor, :format => :short) if @workout.mikor
-    %h5.muted
-      Időtartam:
-      - if @workout.period_time
-        = @workout.period_time.to_s + " perc" 
-      - else
-        = "--"
-    %p
-      = simple_format(@workout.description)
+  #showme.opaque-wrap
+    .standard.standard-header
+      %strong.muted
+        %small
+          = localize(@workout.mikor, :format => :short) if @workout.mikor
+        = " // " + @workout.name
+        /= link_to edit_profile_workout_path(@profile, @workout) do
+        /  %i.icon-pencil
+        - if can? :update, @workout
+          .btn-group.opaque.pull-right
+            %a.btn.btn-small.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to new_profile_workout_path(@profile, @workout) do
+                  %i.icon-plus
+                  Új edzés
+              %li
+                = link_to edit_profile_workout_path(@profile, @workout) do
+                  %i.icon-pencil
+                  Szerkesztés
+              %li
+                = link_to profile_workout_path(@profile, @workout), method: :delete, :data => { :confirm => 'Biztos vagy benne, hogy törlöd?' } do
+                  %i.icon-trash
+                  Törlés
+
+
+    .standard
+      %h5.muted
+        Időtartam:
+        - if @workout.period_time
+          = @workout.period_time.to_s + " perc" 
+        - else
+          = "--"
+      %p
+        = simple_format(@workout.description)
+
 
 

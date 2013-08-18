@@ -1,6 +1,6 @@
 # coding: utf-8
 module CalendarHelper
-  def calendar(date = @date, &block)
+  def calendar(date = Date.today, &block)
     Calendar.new(self, date, block).table
   end
 

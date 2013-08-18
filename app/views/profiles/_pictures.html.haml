@@ -1,17 +1,21 @@
 %br/
-.standard.standard-header
-  %strong.muted  Képek
-  .pull-right
-    - if current_user
-      - if @profile == current_user.profile
-        = link_to "#myModal", "data-toggle" => "modal", title: "Új kép hozzáadása" do
-          .btn
-            %i.icon-plus
-            Új kép
-.standard
-  .pictures
-    - if @photos.any?
-      - @photos.each do |photo|
-        = image_tag(photo.image_url(:thumb), class: "photo-thumb", title: photo.name) if photo.image_url
-    - else
-      %strong.pagination-centered.muted Tölts fel képeket.
+.opaque-wrap
+  .standard.standard-header
+    %strong.muted  Képek
+    .pull-right
+      - if can? :update, @profile
+        .btn-group.pull-right.opaque
+          %a.btn.btn-small.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              = link_to "#myModal", "data-toggle" => "modal", title: "Új kép hozzáadása", class: "opaque" do
+                %i.icon-plus
+                Új kép
+  .standard
+    .pictures
+      - if @photos.any?
+        - @photos.each do |photo|
+          = image_tag(photo.image_url(:thumb), class: "photo-thumb", title: photo.name) if photo.image_url
+      - else
+        %strong.pagination-centered.muted Tölts fel képeket.

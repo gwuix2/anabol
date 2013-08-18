@@ -13,15 +13,17 @@
           .item{ class: "#{ "active" if index == 0 }"}
             = image_tag(photo.image_url, class: "carousel-photo")
             .carousel-caption
-              %h2.muted=photo.name
-              %p=photo.description
+              %h2.muted
+                = photo.name if photo.name
+              %p
+                = photo.description if photo.description
               %h5.muted.pagination-centered.photo-date
-                = photo.keszult
+                = photo.keszult if photo.keszult
               .photo-data
                 %h5.muted Tzs
-                = pc(photo.testzsir)
+                = pc(photo.testzsir) if photo.testzsir
                 %h5.muted Ts
-                = kg(photo.testsuly)
+                = kg(photo.testsuly) if photo.testsuly
         /.active.item …
         /.item …
         /.item …

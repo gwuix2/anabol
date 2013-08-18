@@ -6,7 +6,7 @@ class Inboxes::SpeakersController < Inboxes::BaseController
     raise ActiveRecord::RecordNotFound unless params[:speaker] && params[:speaker][:user_id]
     @user = User.find(params[:speaker][:user_id])
     flash[:notice] = t("inboxes.speakers.added") if @discussion.add_speaker(@user)
-    redirect_to inboxes.discussion_url(@discussion)
+    redirect_to discussions_url
   end
 
   def destroy

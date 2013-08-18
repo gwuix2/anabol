@@ -1,28 +1,42 @@
-.row-fluid
-  .span6
-    %table.table-condensed
-      %tbody
-        %tr
-          %td Név
-          %td= @profile.real_name
-        %tr
-          %td Szül.
-          %td= @profile.date_of_birth
-        %tr
-          %td Város
-          %td= @profile.varos
-        %tr
-          %td Edzőterem
-          %td= @profile.gym
-        %tr
-          %td Nem
-          %td= @profile.nem2
-        %tr
-          %td Magasság
-          %td= cm(@profile.magassag)
-        %tr
-          %td Sportág
-          %td= @profile.sport
-  .span6
-    %p
-      = @profile.description
+.opaque-wrap
+  .standard.standard-header
+    %strong.muted
+      Névjegy
+    - if can? :update, @profile
+      .btn-group.pull-right.opaque
+        %a.btn.btn-small.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            = link_to edit_profile_path(@profile) do
+              %i.icon-pencil
+              Szerkesztés
+  .standard.personal
+    .row-fluid
+      .span6
+        %table.table-condensed
+          %tbody
+            %tr
+              %td Név
+              %td= @profile.real_name
+            %tr
+              %td Szül.
+              %td= @profile.date_of_birth
+            %tr
+              %td Város
+              %td= @profile.varos
+            %tr
+              %td Edzőterem
+              %td= @profile.gym
+            %tr
+              %td Nem
+              %td= @profile.nem2
+            %tr
+              %td Magasság
+              %td= cm(@profile.magassag)
+            %tr
+              %td Sportág
+              %td= @profile.sport
+      .span6
+        %p
+          = @profile.description
