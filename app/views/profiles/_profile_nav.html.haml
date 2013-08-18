@@ -23,16 +23,19 @@
 /    .well.description
 /      = @profile.description
 .row-fluid
-  %ul.nav.nav-tabs.profile-nav2
-    %li{:class => "#{"active" if current_page?(@profile)}", id: "profile-link"}
-      = link_to "Profil", @profile
-    %li{:class => "#{"active" if current_page?(profile_photos_path(@profile))}", id: "photos-link"}
-      = link_to "Fényképek", profile_photos_path(@profile)
-    %li.pull-right
-      = link_to following_profile_path(@profile) do
-        = @profile.followed_profiles.count
-        követés
-    %li.pull-right
-      = link_to followers_profile_path(@profile) do
-        = @profile.followers.count
-        követő
+  .span12
+    %ul.nav.nav-tabs.ul-profile-nav2
+      %li{:class => "#{"active" if current_page?(@profile)}", id: "profile-link"}
+        = link_to "Profil", @profile
+      %li{:class => "#{"active" if current_page?(profile_photos_path(@profile))}", id: "photos-link"}
+        = link_to "Fényképek", profile_photos_path(@profile)
+      %li.pull-right
+        = render "profiles/follow_form"
+      %li.pull-right
+        = link_to following_profile_path(@profile) do
+          = @profile.followed_profiles.count
+          követés
+      %li.pull-right
+        = link_to followers_profile_path(@profile) do
+          = @profile.followers.count
+          követő

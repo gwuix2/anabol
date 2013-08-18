@@ -4,7 +4,7 @@
       %strong.muted
         %small
           = localize(@workout.mikor, :format => :short) if @workout.mikor
-        = " // " + @workout.name
+        = " | " + @workout.name
         /= link_to edit_profile_workout_path(@profile, @workout) do
         /  %i.icon-pencil
         - if can? :update, @workout

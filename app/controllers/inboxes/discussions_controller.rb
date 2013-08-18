@@ -19,7 +19,10 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
   end
 
   def new
-    @users = (current_user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", current_user.id]))
+    @users = []
+    User.find(:all, :conditions => ["id != ?", current_user.id]).each do |user|
+        @users << user if current_user.profile.following?(user.profile)
+    end
     @discussion.messages.build
   end
 

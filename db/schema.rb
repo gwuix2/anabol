@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818082724) do
+ActiveRecord::Schema.define(:version => 20130818151253) do
 
   create_table "discussions", :force => true do |t|
     t.integer  "messages_count",   :default => 0
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20130818082724) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "uname"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

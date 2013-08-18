@@ -1,6 +1,6 @@
 = simple_form_for(@discussion) do |f|
   %h5.muted Címzett
-  = select_tag "discussion[recipient_tokens]", options_from_collection_for_select(User.find(:all, :conditions => ["id != ?", current_user.id]), :id, Inboxes::config.user_name), :multiple => true, :size => "4"
+  = select_tag "discussion[recipient_tokens]", options_from_collection_for_select(@users, :id, 'uname'), :multiple => true, :size => "4"
   = f.simple_fields_for :messages do |j|
     = j.input :body, label: "Üzenet", required: true, input_html: { rows: 5, class: "span12"}
   .form-actions

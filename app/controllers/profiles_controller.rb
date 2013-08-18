@@ -93,14 +93,14 @@ class ProfilesController < ApplicationController
   def following
     @title = "Following"
     @profile = Profile.find(params[:id])
-    @profiles = @profile.followed_profiles.paginate(page: params[:page])
+    @profiles = @profile.followed_profiles
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @profile = Profile.find(params[:id])
-    @profiles = @profile.followers.paginate(page: params[:page])
+    @profiles = @profile.followers
     render 'show_follow'
   end
 

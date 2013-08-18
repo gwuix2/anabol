@@ -3,6 +3,8 @@ class Profile < ActiveRecord::Base
 
   validates_uniqueness_of :slug
 
+  after_save :set_my_name
+
   extend FriendlyId
   friendly_id :user_name, use: :slugged
   belongs_to :user
@@ -33,5 +35,11 @@ class Profile < ActiveRecord::Base
 
   def unfollow!(other_profile)
     relationships.find_by_followed_id(other_profile.id).destroy
+  end
+
+  def set_my_name
+    @user = User.find_by_id(user_id)
+    @user.uname = user_name
+    @user.save
   end
 end

@@ -539,5 +539,17 @@ body {
   opacity: .9;
 }
 
-.stats {
+.relative {
+  position: relative;
+}
+
+#follow-form {
+  position: relative;
+  top: 5px;
+}
+
+.ul-profile-nav2 {
+  height: 37px;
+  padding-left: 223px;
+  padding-top: 5px;
 }

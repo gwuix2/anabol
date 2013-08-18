@@ -1,6 +1,6 @@
 - unless current_user.profile == @profile
-  #follow_form
+  #follow-form
     - if current_user.profile.following?(@profile)
-      = render 'unfollow'
+      = render 'profiles/unfollow'
     - else
-      = render 'follow'
+      = render 'profiles/follow'
