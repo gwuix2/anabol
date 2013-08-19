@@ -1,3 +1,4 @@
+# coding: UTF-8
 class Inboxes::DiscussionsController < Inboxes::BaseController
   load_and_authorize_resource
   before_filter :load_and_check_discussion_recipient, :only => [:create, :new]
@@ -10,6 +11,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
 
   def show
     @discussion.mark_as_read_for(current_user)
+    @discussion.messages = @discussion.messages.last(60)
 
     respond_to do |format|
       format.html
@@ -48,7 +50,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
     if @discussion.save && @discussion.messages.any?
       redirect_to discussions_url, :notice => t("inboxes.discussions.started")
     else
-      redirect_to new_discussion_url
+      redirect_to new_discussion_url, notice: "Nem választottál ki címzettet, vagy üres volt az üzeneted."
     end
   end
 

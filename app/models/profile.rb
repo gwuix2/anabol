@@ -42,4 +42,16 @@ class Profile < ActiveRecord::Base
     @user.uname = user_name
     @user.save
   end
+
+  def self.searchable_language
+    'hungarian'
+  end
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
 end

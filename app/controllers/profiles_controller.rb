@@ -5,6 +5,10 @@ class ProfilesController < ApplicationController
 
   load_and_authorize_resource
 
+  def index
+    @profiles = Profile.text_search(params[:query])
+  end
+
   def show
   	@profile = Profile.find(params[:id])
     @sizes_index = @profile.sizes.order("created_at DESC").first(5)

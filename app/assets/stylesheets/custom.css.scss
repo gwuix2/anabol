@@ -337,7 +337,6 @@ body {
 }
 
 .ul-workout {
-  display: inline-table;
 }
 
 .profile-nav2 {
@@ -552,4 +551,14 @@ body {
   height: 37px;
   padding-left: 223px;
   padding-top: 5px;
+}
+
+.profile-search {
+  margin-top: 9px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-index-name {
+  padding-left: 10px;
 }

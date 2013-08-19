@@ -16,6 +16,7 @@
     .pictures
       - if @photos.any?
         - @photos.each do |photo|
-          = image_tag(photo.image_url(:thumb), class: "photo-thumb", title: photo.name) if photo.image_url
+          = link_to profile_photos_path(@profile) do
+            = image_tag(photo.image_url(:thumb), class: "photo-thumb", title: photo.name) if photo.image_url
       - else
         %strong.pagination-centered.muted Tölts fel képeket.

@@ -34,7 +34,7 @@ Anabol::Application.routes.draw do
   
   resources :relationships, only: [:create, :destroy]
   #resources :users
-  resources :profiles, :only => [:show, :edit, :update, :destroy], :path => "/a" do
+  resources :profiles, :only => [:show, :edit, :update, :destroy, :index], :path => "/a" do
      resources :sizes, :path => "meres"
      resources :workouts, :path => "edzes"
      resources :photos, :path => "kepek"

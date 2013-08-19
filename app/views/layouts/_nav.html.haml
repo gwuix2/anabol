@@ -14,6 +14,11 @@
           - if user_signed_in?
             %li
               = link_to "Meta", meta_path
+        - if user_signed_in?
+          = form_tag profiles_path, class: "navbar-form pull-left", method: :get do
+            = text_field_tag :query, params[:query]
+            %button.btn{:type => "submit"}
+              %i.icon-search
         %ul.nav.pull-right
           - unless user_signed_in?
             %li{:class => "#{'active' if current_page?(regisztracio_path)}"}

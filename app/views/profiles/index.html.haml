@@ -1,0 +1,14 @@
+.row-fluid
+  .span8.offset2
+    - @profiles.each do |profile|
+      .row-fluid.profile-search.standard
+        .span2
+          = link_to profile do
+            - if profile.image_url
+              = image_tag(profile.image_url(:thumb), class: "img-polaroid")
+            - else
+              = image_tag('user.png', class: "img-polaroid")
+        .span8
+          = link_to profile do
+            %h4.search-index-name
+              = profile.user_name

@@ -30,6 +30,7 @@ group :assets do
   gem 'bootstrap-datetimepicker-rails'
 end
 
+gem 'textacular', '~> 3.0'
 gem 'rack'
 gem 'faye', require: 'faye'
 gem "inboxes", "~> 0.2.2"
