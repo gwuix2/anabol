@@ -8,7 +8,19 @@
               = image_tag(profile.image_url(:thumb), class: "img-polaroid")
             - else
               = image_tag('user.png', class: "img-polaroid")
-        .span8
+        .span8.search-index-name
           = link_to profile do
-            %h4.search-index-name
+            %h4
               = profile.user_name
+          %span.label{ title: "Testsúly"}
+            TS
+          = kg(last_valid_profile(profile, :testsuly))
+          %span.label{ title: "Testsúly"}
+            TZS
+          = pc(last_valid_profile(profile, :testzsir))
+          %br/
+          %br/
+          %span.label.label-info
+            = profile.followers.count
+          Követő
+

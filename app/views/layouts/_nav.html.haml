@@ -32,7 +32,11 @@
               = link_to "Új mérés", new_profile_size_path(current_user.profile), id: "new-size", class: "btn-link"
             %li{:class => "#{'active' if current_page?(discussions_path)}"}
               = link_to discussions_path do
-                %i.icon-envelope
+                - if current_user.discussions.order("updated_at Desc").first.unread_for?(current_user)
+                  %span.badge.badge-important
+                    %i.icon-envelope.icon-white
+                -else
+                  %i.icon-envelope
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 %i.icon-user

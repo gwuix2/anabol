@@ -4,6 +4,9 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
   before_filter :load_and_check_discussion_recipient, :only => [:create, :new]
 
   def index
+    if current_user
+      current_user.discussions.order("updated_at Desc").first.mark_as_read_for(current_user)
+    end
     @discussions = current_user.discussions.order("updated_at Desc")
     @discussion = current_user.discussions.order("updated_at Desc").first
     @users = (current_user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", current_user.id]))

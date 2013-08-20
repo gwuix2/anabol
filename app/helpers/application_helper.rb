@@ -23,6 +23,14 @@ module ApplicationHelper
     end
   end
 
+    def last_valid_profile(profile, attr)
+    if Size.where(:profile_id => profile.id).collect(&(attr)).compact.last
+      Size.where(:profile_id => profile.id).order("mikor DESC").collect(&(attr)).compact.last
+    else
+      '--'
+    end
+  end
+
 
   def changed_by(attr)
     @ch_0 = last_valid(attr)
@@ -73,5 +81,11 @@ module ApplicationHelper
     message = {:channel => channel, :data => capture(&block)}
     uri = URI.parse("http://localhost:9292/faye")
     Net::HTTP.post_form(uri, :message => message.to_json)
+  end
+
+  def unread_messages?(user)
+    user.discussions.each do |discussion|
+      discussion.unread_for?(user)
+    end
   end
 end
