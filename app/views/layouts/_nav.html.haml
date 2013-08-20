@@ -15,7 +15,7 @@
             %li
               = link_to "Meta", meta_path
         - if user_signed_in?
-          = form_tag profiles_path, class: "navbar-form pull-left", method: :get do
+          = form_tag kereses_path, class: "navbar-form pull-left", method: :get do
             = text_field_tag :query, params[:query]
             %button.btn{:type => "submit"}
               %i.icon-search

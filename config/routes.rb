@@ -31,10 +31,13 @@ Anabol::Application.routes.draw do
       end
     end
   end
-  
+
+
   resources :relationships, only: [:create, :destroy]
   #resources :users
-  resources :profiles, :only => [:show, :edit, :update, :destroy, :index], :path => "/a" do
+  root :to => "static_pages#home"
+  get 'kereses' => 'profiles#index'
+  resources :profiles, :only => [:show, :edit, :update, :destroy, :index], :path => "/" do
      resources :sizes, :path => "meres"
      resources :workouts, :path => "edzes"
      resources :photos, :path => "kepek"
@@ -46,7 +49,7 @@ Anabol::Application.routes.draw do
     #end
   end
 
-  root :to => "static_pages#home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

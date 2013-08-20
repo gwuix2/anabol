@@ -3,6 +3,12 @@
 - if myprofile?(@profile)
   #profile
     #profile-body
+      .row-fluid
+        .span12
+          = form_tag profile_path(@profile), class: "navbar-form pull-left", method: :get do
+            = text_field_tag :time, params[:time]
+            %button.btn{:type => "submit"}
+              OK
       .row-fluid.profile-body
         .span5
           = render "calendar"

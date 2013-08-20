@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @profiles = Profile.text_search(params[:query])
+    @profiles = (Profile.text_search(params[:query])).order("followers Desc").first(50)
   end
 
   def show
@@ -16,7 +16,11 @@ class ProfilesController < ApplicationController
 
     @new_photo = @profile.photos.new
     @photos = @profile.photos.last(7)
-    @date ||= Date.today
+    if params[:time]
+      @date = :time
+    else
+      @date ||= Date.today
+    end
     #graphs
     #@testsuly = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testsuly).compact
     #@testzsir = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testzsir).compact
