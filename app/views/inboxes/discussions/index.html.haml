@@ -1,30 +1,35 @@
-.row-fluid
-  .span10.offset1.standard.standard-header
+.row
+  .small-8.small-centered.columns
     %h1.muted
       Üzenetek
-.row-fluid
-  .span4.offset1
-    .standard#discussions-box
-      - @discussions.each do |discussion|
-        .row-fluid.hover-gray{class: "#{ "unread" if discussion.unread_for?(current_user)}" }
-          = link_to discussion, remote: true do
-            - discussion.users.each do |user|
-              - unless user.id == current_user.id
-                .span4
-                  - if user.profile.image_url
-                    = image_tag(user.profile.image_url(:thumb), class: "message-thumb")
-                  - else
-                    = image_tag('user.png', class: "message-thumb")
-
-                .span8.msg-body
-                  %h5
-                    = user.profile.user_name
-                  .muted.msg-body-short
-                    = truncate(discussion.messages.last.body, length: 20, separator: " ")
-    .standard#new-discussion-link
-      = link_to "Új beszélgetés", new_discussion_path, class: "btn btn-primary btn-block"
-  .span6#messages-wrap
-    = render "show_discussion"
+.row
+  .small-9.small-centered.columns
+    .large-5.columns
+      #discussions-box.standard
+        - @discussions.each do |discussion|
+          .row
+            .small-12.columns
+              .random.hover-gray{class: "#{ "unread" if discussion.unread_for?(current_user)}" }
+                = link_to discussion, remote: true do
+                  .row
+                    - discussion.users.each do |user|
+                      - unless user.id == current_user.id
+                        .small-5.columns
+                          - if user.profile.image_url
+                            = image_tag(user.profile.image_url(:thumb))
+                          - else
+                            = image_tag('user.png')
+                        .small-7.columns
+                          %h5
+                            = user.profile.user_name
+                          %small
+                            = truncate(discussion.messages.last.body, length: 20, separator: " ")
+      #new-discussion-link
+        %br/
+        = link_to "Új beszélgetés", new_discussion_path, class: "button secondary expand"
+    .large-7.columns
+      #messages-wrap.standard
+        = render "show_discussion"
 
 :javascript
   $(document).ready(function() {

@@ -2,24 +2,23 @@
   = calendar do |date|
     - if @workouts_by_date[date]
       = date.day
-      %ul.unstyled.ul-workout
+      %ul.no-bullet
         - @workouts_by_date[date].each do |workout|
-          %li{ title: workout.name }
+          %li.left{ title: workout.name }
             = link_to profile_workout_path(@profile, workout), remote: true, id: "workout-link" do
               - if workout.color == "fehér"
-                .circle-white
+                .label.round.secondary
+                  %i.general.foundicon-checkmark    
               - elsif workout.color == "kék"
-                .circle-blue
-              - elsif workout.color == "zöld"
-                .circle-green
-              - elsif workout.color == "sárga"
-                .circle-yellow
-              - elsif workout.color == "piros"
-                .circle-red
-              - elsif workout.color == "fekete"
-                .circle-black
+                .label.round
+                  %i.general.foundicon-checkmark          
+              - elsif workout.color == "zöld"            
+              - elsif workout.color == "sárga"            
+              - elsif workout.color == "piros"          
+              - elsif workout.color == "fekete"            
               - else
-                .circle
+                .label.round
+                  %i.general.foundicon-checkmark  
 
     - else
       = date.day

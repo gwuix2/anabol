@@ -1,5 +1,6 @@
-.row-fluid
-  .span4.offset4.standard.registration
+- @home_page = true
+.row
+  .small-5.small-centered.columns.bg-white.padding-10
     %h2.muted Új Felhasználó
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       = f.error_notification
@@ -8,7 +9,5 @@
         = f.input :name, :required => true, label: "Felhasználónév"
         = f.input :password, :required => true, label: "jelszó"
         = f.input :password_confirmation, :required => true, label: "jelszó ellenőrzés"
-        = f.button :submit, "Mentés", class: "btn btn-primary btn-large"
+        = f.button :submit, "Regiszráció", class: "button success expand"
     = render "devise/shared/links"
-    .muted
-      *facebook belépéssel automatikus a regisztráció

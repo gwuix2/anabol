@@ -1,38 +1,81 @@
 - provide(:title, @profile.user_name.to_s)
 = render 'profile_nav'
-- if myprofile?(@profile)
-  #profile
-    #profile-body
-      .row-fluid
-        .span12
-          = form_tag profile_path(@profile), class: "navbar-form pull-left", method: :get do
-            = text_field_tag :time, params[:time]
-            %button.btn{:type => "submit"}
-              OK
-      .row-fluid.profile-body
-        .span5
-          = render "calendar"
-          = render "pictures"
-          %br/
-          .standard.standard-header
-            %strong.muted
-              Testsúly Grafikon
-          .standard
-            = high_chart("chart_tzs", @ts)
-      
-      
-        .span7
-          .size-view
-            = render "size_view"
-          %br/
-          .workout-wrapper
-            = render "workouts/showme"
-          %br/
-          .row-fluid
-- else
-  = render "private"
+.row
+  .small-11.small-centered.columns
+    .row
+      .large-12.columns
+        = render "follow_form"
+        = render "size_view"
+    .row
+      .large-5.columns
+        = select_year(@year)
+        = select_month(@month)
+        = render "calendar"
+      .large-7.columns
+        .workout-wrapper
+          = render "workouts/showme"
+    .row
+      .large-6.columns
+        = high_chart("chart_tzs", @ts)
 
-/ Button to trigger modal
+:javascript
+  $(document).ready(function() {
+    $('select').change( function() {
+      var year = $('#date_year').val();
+      var month = $('#date_month').val();
+      var current_url = window.location.href;
+      if(current_url.indexOf('?') > -1) { 
+        window.location.href = current_url += '&date=' + year + "-" + month + "-" + "10".toString();
+      } else { 
+        window.location.href = current_url += '?date=' + year + "-" + month + "-" + "10".toString();
+      }
+    });
+  });
 
-/ Modal
-= render "modal_picture"
+
+/.large-6.columns
+/  = render "calendar"
+/  .workout-wrapper
+/    = render "workouts/showme"
+/.large-6.columns
+/  = render "size_view"
+
+
+
+
+/- if myprofile?(@profile)
+/  #profile
+/    #profile-body
+/      .row-fluid
+/        .span12
+/          = form_tag profile_path(@profile), class: "navbar-form pull-left", method: :get do
+/            = text_field_tag :time, params[:time]
+/            %button.btn{:type => "submit"}
+/              OK
+/      .row-fluid.profile-body
+/        .span5
+/          = render "calendar"
+/          = render "pictures"
+/          %br/
+/          .standard.standard-header
+/            %strong.muted
+/              Testsúly Grafikon
+/          .standard
+/            = high_chart("chart_tzs", @ts)
+/      
+/      
+/        .span7
+/          .size-view
+/            = render "size_view"
+/          %br/
+/          .workout-wrapper
+/            = render "workouts/showme"
+/          %br/
+/          .row-fluid
+/- else
+/  = render "private"
+/
+// Button to trigger modal
+/
+// Modal
+/= render "modal_picture"

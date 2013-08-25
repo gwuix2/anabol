@@ -1,41 +1,69 @@
-- if @profile && @no_nav == nil
-  .row-fluid
-    .span12
-      .profile-nav
-        .row-fluid
-          .span6
-            %h1
-              = link_to @profile.user_name , @profile if @profile.user_name
-.row-fluid
-  .span12.cover-image
-    = image_tag(@profile.cover_image_url(:cover)) if @profile.cover_image_url
+.row
+  .small-11.small-centered.columns
+    .row
+      .small-6.columns
+        %h2.profile-header
+          = link_to @profile.user_name, @profile if @profile.user_name
+.row
+  .small-11.small-centered.columns
+    = image_tag(@profile.cover_image_url(:cover), class: "cover-image") if @profile.cover_image_url
     - if @profile.image_url
-      = image_tag(@profile.image_url(:thumb), class: "profile-img img-polaroid")
+      = image_tag(@profile.image_url(:thumb), class: "th profile-img")
     - else
-      = image_tag('user.png', class: "profile-img img-polaroid")
-    /= link_to "Borítókép hozzáadása", "#", class: "btn pull-right cover-image-link" if own_profile?(@profile)
-    /= image_tag(image_profile_path(@profile), :alt => "Avatar") if @profile.image?
-/  .span2
-/    = render "personal"
-/  .span4
-/    %h4.muted
-/      Magamról
-/    .well.description
-/      = @profile.description
-.row-fluid
-  .span12
-    %ul.nav.nav-tabs.ul-profile-nav2
-      %li{:class => "#{"active" if current_page?(@profile)}", id: "profile-link"}
-        = link_to "Profil", @profile
-      %li{:class => "#{"active" if current_page?(profile_photos_path(@profile))}", id: "photos-link"}
-        = link_to "Fényképek", profile_photos_path(@profile)
-      %li.pull-right
-        = render "profiles/follow_form"
-      %li.pull-right
-        = link_to following_profile_path(@profile) do
-          = @profile.followed_profiles.count
-          követés
-      %li.pull-right
-        = link_to followers_profile_path(@profile) do
-          = @profile.followers.count
-          követő
+      = image_tag('user.png', class: "th profile-img")
+.row
+  .small-11.small-centered.columns
+    .row
+      .small-6.small-offset-6.columns
+        %ul.small-block-grid-4
+          %li
+            %h6
+              = link_to following_profile_path(@profile) do
+                = @profile.followed_profiles.count
+                követés
+          %li
+            %h6
+              = link_to followers_profile_path(@profile) do
+                = @profile.followers.count
+                követő
+          %li
+            %h6
+              Ts:
+              = kg(last_valid(:testsuly))
+          %li
+            %h6
+              Tzs:
+              = pc(last_valid(:testzsir))
+
+/- if @profile && @no_nav == nil
+/  .row-fluid
+/    .span12
+/      .profile-nav
+/        .row-fluid
+/          .span6
+/            %h1
+/              = link_to @profile.user_name , @profile if @profile.user_name
+/.row-fluid
+/  .span12.cover-image
+/    = image_tag(@profile.cover_image_url(:cover)) if @profile.cover_image_url
+/    - if @profile.image_url
+/      = image_tag(@profile.image_url(:thumb), class: "profile-img img-polaroid")
+/    - else
+/      = image_tag('user.png', class: "profile-img img-polaroid")
+/.row-fluid
+/  .span12
+/    %ul.nav.nav-tabs.ul-profile-nav2
+/      %li{:class => "#{"active" if current_page?(@profile)}", id: "profile-link"}
+/        = link_to "Profil", @profile
+/      %li{:class => "#{"active" if current_page?(profile_photos_path(@profile))}", id: "photos-link"}
+/        = link_to "Fényképek", profile_photos_path(@profile)
+/      %li.pull-right
+/        = render "profiles/follow_form"
+/      %li.pull-right
+/        = link_to following_profile_path(@profile) do
+/          = @profile.followed_profiles.count
+/          követés
+/      %li.pull-right
+/        = link_to followers_profile_path(@profile) do
+/          = @profile.followers.count
+/          követő

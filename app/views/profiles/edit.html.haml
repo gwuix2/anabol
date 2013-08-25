@@ -1,6 +1,6 @@
 - provide(:title, "Beállítások - " + @profile.user_name.to_s)
-.row-fluid
-  .span6.offset3
+.row
+  .small-8.small-centered.columns
     %h2.pagination-centered.muted
       Profilod beállításai
     = simple_form_for(@profile, :html => {:class => 'form-horizontal' }) do |f|
@@ -17,6 +17,6 @@
       = f.input :cover_image, label: "Borítókép"
       = f.input :description, :input_html => { :class => "span12" }, label: "Magamról"
       .form-actions
-        = f.button :submit, "Mentés", class: "btn btn-primary btn-large"
-        = link_to "Mégse", "#", class: "btn btn-large", id: "close-workout"
+        = f.button :submit, "Mentés", class: "button"
+        = link_to "Mégse", "#", class: "button secondary", id: "close-workout"
     /= Profile.inspect

@@ -2,7 +2,7 @@
   %p
     %small.muted
       %strong
-        = message.user.profile.user_name
+        = message.user.profile.user_name if message.user
       = l(message.created_at)
   %p
     %strong

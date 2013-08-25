@@ -1,7 +1,7 @@
 - provide(:title, "Méréseim")
 %br/
-.row-fluid
-  .span12
+.row
+  .small-12.columns
     %table.datatable
       %thead
         %tr
@@ -50,5 +50,7 @@
             %td
               = size.vadli
             %td
-              = link_to "Szerkesztés", edit_profile_size_path(@profile, size), class: "btn btn-link"
-              = link_to "Törlés", profile_size_path(@profile, size), method: :delete,  class: "btn btn-link"
+              = link_to  edit_profile_size_path(@profile, size) do
+                %i.general.foundicon-edit
+              = link_to  profile_size_path(@profile, size), method: :delete, confirm: "Biztos vagy benne?" do
+                %i.general.foundicon-trash

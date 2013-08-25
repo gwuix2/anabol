@@ -1,9 +1,25 @@
-%h2 Belépés
-= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, :required => false, :autofocus => true
-    = f.input :password, :required => false, label: "Jelszó"
-    = f.input :remember_me, :as => :boolean, label: "Emlékezz rám!" if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Belépés", class: "btn btn-primary btn-large"
-= render "devise/shared/links"
+- @home_page = true
+.row
+  .small-12.columns
+    .row
+      .small-6.small-centered.columns.bg-white
+        %h2 Belépés
+        = simple_form_for("user", :url => user_session_path) do |f|
+          = f.input :email, label: false, placeholder: "email"
+          = f.input :password, label: false, placeholder: "jelszó"
+          .form-actions
+            = f.submit 'Belépés', class: "button expand"
+            = link_to user_omniauth_authorize_path(:facebook) do
+              .button.button-facebook.expand
+                %i.social.foundicon-facebook
+                Belépés Facebokkal
+
+/%h2 Belépés
+/= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+/  .form-inputs
+/    = f.input :email, :required => false, :autofocus => true
+/    = f.input :password, :required => false, label: "Jelszó"
+/    = f.input :remember_me, :as => :boolean, label: "Emlékezz rám!" if devise_mapping.rememberable?
+/  .form-actions
+/    = f.button :submit, "Belépés", class: "btn btn-primary btn-large"
+/= render "devise/shared/links"

@@ -22,12 +22,14 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass', '~> 2.3.2.1'
+  gem 'compass-rails'
+  gem 'zurb-foundation'
+  gem 'foundation-icons-sass-rails'
+  gem 'foundation_rails_helper'
   gem 'therubyracer'
   gem 'execjs'
   gem 'jquery-datatables-rails'
   gem 'jquery-ui-rails'
-  gem 'bootstrap-datetimepicker-rails'
 end
 
 gem 'textacular', '~> 3.0'
@@ -46,7 +48,7 @@ gem 'devise'
 gem 'haml-rails'
 gem "rmagick"
 gem 'carrierwave'
-gem 'lazy_high_charts'
+gem 'lazy_high_charts', '1.4.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -2,16 +2,10 @@
 .opaque-wrap
   .standard.standard-header
     %strong.muted  Képek
-    .pull-right
+    .right
       - if can? :update, @profile
-        .btn-group.pull-right.opaque
-          %a.btn.btn-small.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              = link_to "#myModal", "data-toggle" => "modal", title: "Új kép hozzáadása", class: "opaque" do
-                %i.icon-plus
-                Új kép
+        = link_to "#myModal", "data-toggle" => "modal", title: "Új kép hozzáadása", class: "opaque" do
+          Új kép
   .standard
     .pictures
       - if @photos.any?

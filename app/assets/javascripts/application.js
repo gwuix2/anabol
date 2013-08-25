@@ -12,18 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= requiry jquery-fileupload/basic
+//= require foundation
 //= require dataTables/jquery.dataTables
-//= require bootstrap-datetimepicker
-//= require bootstrap
-//= require highcharts/highcharts  
+//= require highcharts/highcharts
 //= require_tree .
 
-
-$(function(){
-  $(".datetime").datetimepicker();
-  $('#login-link').on('click', function() {
-    $('#login-box').fadeToggle("fast");
-    $('#login-link').toggleClass("active");
-  });
-});
+$(function(){ $(document).foundation(); });

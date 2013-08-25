@@ -43,7 +43,7 @@ hu:
     sessions:
       user:
         signed_in: Sikeres bejelentkezés.
-        signed_out: A kijelentkezés sikeres.
+        signed_out: Sikeres kijelentkezés.
     unlocks:
       send_instructions: Hamarosan a megadott címre érkezik egy email a fiók zárolásának megszüntetésével kapcsolatban.
       send_paranoid_instructions: "Ha a fiók létezik, egy emailt küldtünk a további teendőkkel a fiók zárolásának megszüntetéséhez."

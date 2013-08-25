@@ -1,6 +1,6 @@
 #sf 
-  .row-fluid
-    .span6.offset3
+  .row
+    .small-8.small-centered.columns
       = simple_form_for([@profile, @size], :html => { :class => 'form-horizontal' }) do |f|
         .form-inputs
           .datetime.input-append
@@ -20,5 +20,5 @@
           = f.input :comb, label: "Comb(cm)"
           = f.input :vadli, label: "Vádli(cm)"
         .form-actions
-          = f.submit "Mentés", class: "btn btn-primary btn-large"
-          = link_to "Mégse", root_path, class: "btn btn-large", id: "close-size"
+          = f.submit "Mentés", class: "button"
+          = link_to "Mégse", root_path, class: "button secondary", id: "close-size"

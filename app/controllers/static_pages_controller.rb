@@ -3,11 +3,11 @@ class StaticPagesController < ApplicationController
   before_filter :get_profile
 
   def home
+    @home_page = true
     if user_signed_in?
       redirect_to current_user.profile if current_user.profile
     else
     end
-
   end
 
   def about

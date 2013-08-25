@@ -1,19 +1,8 @@
 # coding: UTF-8
 module ApplicationHelper
-	def bootstrap_class_for flash_type
-      case flash_type
-        when :success
-          "alert-success"
-        when :error
-          "alert-error"
-        when :alert
-          "alert-block"
-        when :notice
-          "alert-info"
-        else
-          flash_type.to_s
-      end
-    end
+
+  include FoundationRailsHelper::FlashHelper
+
 
   def last_valid(attr)
     if Size.where(:profile_id => @profile.id).collect(&(attr)).compact.last
@@ -30,7 +19,6 @@ module ApplicationHelper
       '--'
     end
   end
-
 
   def changed_by(attr)
     @ch_0 = last_valid(attr)

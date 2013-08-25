@@ -1,0 +1,88 @@
+%header.navbar.navbar-fixed-top
+  %nav.navbar-inner.navbar-custom
+    .container
+      / .btn-navbar is used as the toggle for collapsed navbar content
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      / Be sure to leave the brand out there if you want it shown
+      = link_to  'Anabolizmus', root_path, class: "brand"
+      / Everything you want hidden at 940px or less, place within here
+      .nav-collapse.collapse
+        %ul.nav.pull-left
+          - if user_signed_in?
+            %li
+              = link_to "Meta", meta_path
+        - if user_signed_in?
+          = form_tag kereses_path, class: "navbar-form pull-left", method: :get do
+            = text_field_tag :query, params[:query]
+            %button.btn{:type => "submit"}
+              %i.icon-search
+        %ul.nav.pull-right
+          - unless user_signed_in?
+            %li{:class => "#{'active' if current_page?(regisztracio_path)}"}
+              = link_to "Regisztráció", regisztracio_path
+            %li{:class => "#{'active' if current_page?(new_user_session_path)}", id: "login-link"}
+              = link_to "Belépés", "#"
+          - else
+            %li{:class => "#{'active' if current_page?(new_profile_workout_path(current_user.profile))}"}
+              = link_to "Új edzés", new_profile_workout_path(current_user.profile), id: "new-workout", class: "btn-link"
+            %li{:class => "#{'active' if current_page?(new_profile_size_path(current_user.profile))}"}
+              = link_to "Új mérés", new_profile_size_path(current_user.profile), id: "new-size", class: "btn-link"
+            %li{:class => "#{'active' if current_page?(discussions_path)}"}
+              = link_to discussions_path do
+                - if current_user.discussions.order("updated_at Desc").first.unread_for?(current_user)
+                  %span.badge.badge-important
+                    %i.icon-envelope.icon-white
+                -else
+                  %i.icon-envelope
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %i.icon-user
+                - if User.find_by_id(current_user.id).name.blank? 
+                  = current_user.profile.user_name
+                - else
+                  = User.find_by_id(current_user.id).name
+              %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
+                %li{:class => "#{'active' if current_page?(profile_path(current_user.profile))}"}
+                  = link_to profile_path(current_user.profile) do
+                    %i.icon-user
+                    Profilom
+                %li{:class => "#{'active' if current_page?(edit_profile_path(current_user.profile))}"}
+                  = link_to edit_profile_path(current_user.profile) do
+                    %i.icon-wrench
+                    Beállítások
+                %li.divider
+                /%li 
+                /  = link_to profile_workouts_path(current_user.profile) do
+                /    %i.icon-tag
+                /    Edzéseim
+                %li{:class => "#{'active' if current_page?(profile_sizes_path(current_user.profile))}"}
+                  = link_to profile_sizes_path(current_user.profile) do
+                    %i.icon-resize-horizontal
+                    Méréseim
+                %li.divider
+                %li{:class => "#{'active' if current_page?(kilepes_path)}"}
+                  = link_to "Kijelentkezés", kilepes_path, method: :delete, class: "muted"
+    .container#login-container
+      #login-box
+        /= form_tag user_session_path do
+        /  %ul.unstyled
+        /    %li{:placeholder => "email" }
+        /      = text_field_tag 'user[email]'
+        /    %li
+        /      = password_field_tag 'user[password]'
+        /    %li
+        /      %button.btn.btn-primary Belépés
+        /      = link_to "Elfelejtett jelszó?", new_password_path('user'), class: "btn btn-link"
+        #facebook-login
+          = link_to user_omniauth_authorize_path(:facebook) do
+            %btn.btn.btn-link.btn-block
+              = image_tag('face_login.png')
+        = simple_form_for("user", :url => user_session_path) do |f|
+          = f.input :email, label: false, placeholder: "email"
+          = f.input :password, label: false, placeholder: "jelszó"
+          = f.input :remember_me, input_html: { value: '1' }, inline_label: 'Emlékezz rám!', as: :boolean, label: false
+          = link_to "Elfelejtett jelszó?", new_password_path('user'), class: "btn btn-link"
+          = f.submit 'Belépés', class: "btn btn-primary"

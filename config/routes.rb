@@ -36,8 +36,10 @@ Anabol::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   #resources :users
   root :to => "static_pages#home"
+
   get 'kereses' => 'profiles#index'
-  resources :profiles, :only => [:show, :edit, :update, :destroy, :index], :path => "/" do
+
+  resources :profiles, :only => [:show, :edit, :update, :destroy, :index], :path => "/profil" do
      resources :sizes, :path => "meres"
      resources :workouts, :path => "edzes"
      resources :photos, :path => "kepek"

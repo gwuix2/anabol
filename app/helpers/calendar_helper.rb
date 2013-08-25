@@ -1,11 +1,13 @@
 # coding: utf-8
 module CalendarHelper
-  def calendar(date = Date.today, &block)
+
+  def calendar(date = params[:date] || Date.today, &block)
+    date = date.to_date
     Calendar.new(self, date, block).table
   end
 
   class Calendar < Struct.new(:view, :date, :callback)
-    HEADER = %w[Hétfő Kedd Szerda Csütörtök Péntek Szombat Vasárnap]
+    HEADER = %w[Hét. Kedd Szer. Csüt. Pén. Szom. Vas.]
     START_DAY = :monday
 
     delegate :content_tag, to: :view

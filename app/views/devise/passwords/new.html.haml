@@ -1,11 +1,11 @@
-.row-fluid
-  .span6.offset3
-    .standard
-      %h2.muted.pagination-centered Elfelejtett jelszó?
-      = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-        = f.error_notification
-        .form-inputs
-          = f.input :email, :required => true, :autofocus => true, label: "Regisztrált email cím"
-        .form-actions
-          = f.button :submit, "Új jelszóhoz szükséges adatok küldése", class: "btn btn-large"
-      = render "devise/shared/links"
+- @home_page = true
+.row
+  .small-5.small-centered.columns.bg-white.padding-10
+    %h2 Elfelejtett jelszó?
+    = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :email, :required => true, :autofocus => true, label: "Regisztrált email cím"
+      .form-actions
+        = f.button :submit, "Új jelszóhoz szükséges adatok küldése", class: "button expand"
+    = render "devise/shared/links"

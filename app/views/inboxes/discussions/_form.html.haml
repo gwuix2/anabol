@@ -1,11 +1,9 @@
 = simple_form_for(@discussion) do |f|
-  %h5.muted Címzett
-  .muted
-    Válaszd ki kinek szeretnél üzenetet küldeni.
+  %h5 Címzett
   = select_tag "discussion[recipient_tokens]", options_from_collection_for_select(@users, :id, 'uname'), :multiple => true, :size => "5"
   = f.simple_fields_for :messages do |j|
-    = j.input :body, label: "Üzenet", required: true, input_html: { rows: 5, class: "span12"}
+    = j.input :body, label: "Üzenet", required: true, input_html: { rows: 5}
   .form-actions
-    = f.submit "Küldés", class: "btn btn-primary btn-large"
-  .muted
+    = f.submit "Küldés", class: "button"
+  %small
     *Csak azoknak a felhasználóknak küldhetsz üzenetet akiket követsz.

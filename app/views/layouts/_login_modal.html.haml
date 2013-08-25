@@ -1,0 +1,16 @@
+#login-modal.reveal-modal
+  .row
+    .small-12.columns
+      .row
+        .small-10.small-centered.columns
+          %h2 Belépés
+          = simple_form_for("user", :url => user_session_path) do |f|
+            = f.input :email, label: false, placeholder: "email"
+            = f.input :password, label: false, placeholder: "jelszó"
+            .form-actions
+              = f.submit 'Belépés', class: "button expand"
+              = link_to user_omniauth_authorize_path(:facebook) do
+                .button.button-facebook.expand
+                  %i.social.foundicon-facebook
+                  Belépés Facebokkal
+  %a.close-reveal-modal x

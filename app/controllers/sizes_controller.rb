@@ -48,7 +48,7 @@ class SizesController < ApplicationController
     @size.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Mérés törölve.' }
+      format.html { redirect_to profile_sizes_path(current_user.profile), notice: 'Mérés törölve.' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,6 @@
 .message_form
   = simple_form_for Message.new, :url => discussion_messages_path(@discussion.id), :method => :post, :remote => true do |f|
     .form-inputs
-      = f.input :body, :input_html => { class: "span12", rows: 4}, label: false
+      = f.input :body, :input_html => { rows: 4}, label: false
     .form-actions
-      = f.submit "Küldés", class: "btn btn-primary btn-large pull-right"
+      = f.submit "Küldés", class: "button expand"

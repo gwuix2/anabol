@@ -1,19 +1,27 @@
-- if controller_name != 'sessions'
-  = link_to "Belépés", new_session_path(resource_name)
-  %br/
-- if devise_mapping.registerable? && controller_name != 'registrations'
-  = link_to "Új felhasználó", new_registration_path(resource_name)
-  %br/
-- if devise_mapping.recoverable? && controller_name != 'passwords'
-  = link_to "Elfelejtett jelszó?", new_password_path(resource_name)
-  %br/
-- if devise_mapping.confirmable? && controller_name != 'confirmations'
-  = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
-  %br/
-- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-  = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)
-  %br/
 - if devise_mapping.omniauthable?
   - resource_class.omniauth_providers.each do |provider|
-    = link_to "#{provider.to_s.titleize} Belépés", omniauth_authorize_path(resource_name, provider)
-    %br/
+    - if provider.to_s == "facebook"
+      = link_to user_omniauth_authorize_path(:facebook), class: "button button-facebook expand"  do
+        %i.social.foundicon-facebook
+        Belépés Facebookkal
+    - else
+      = link_to "#{provider.to_s.titleize} Belépés", omniauth_authorize_path(resource_name, provider)
+%ul.large-block-grid-2
+  - if controller_name != 'sessions'
+    %li
+      %a{"data-reveal-id" => "login-modal", :href => "#", class: "button expand"}
+        Belépés
+    /%li
+    /  = link_to "Belépés", new_session_path(resource_name)
+  - if devise_mapping.registerable? && controller_name != 'registrations'
+    %li
+      = link_to "Új felhasználó", new_registration_path(resource_name), class: "button secondary expand"
+  - if devise_mapping.recoverable? && controller_name != 'passwords'
+    %li
+      = link_to "Elfelejtett jelszó?", new_password_path(resource_name), class: "button secondary expand"
+  - if devise_mapping.confirmable? && controller_name != 'confirmations'
+    %li
+      = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
+  - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
+    %li
+      = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)

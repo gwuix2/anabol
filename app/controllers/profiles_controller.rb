@@ -16,11 +16,6 @@ class ProfilesController < ApplicationController
 
     @new_photo = @profile.photos.new
     @photos = @profile.photos.last(7)
-    if params[:time]
-      @date = :time
-    else
-      @date ||= Date.today
-    end
     #graphs
     #@testsuly = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testsuly).compact
     #@testzsir = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testzsir).compact
@@ -66,7 +61,14 @@ class ProfilesController < ApplicationController
     @workout = @profile.workouts.order('mikor ASC').last
     @workouts = @profile.workouts.all
     @workouts_by_date = @workouts.group_by(&:mikor_date)
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    # @date = params[:date] ? Date.parse(params[:date]) : Date.today # Ez mire jó?
+    if params[:date]
+      @year = params[:date].to_date.year
+      @month = params[:date].to_date.month 
+    else
+      @year = Date.today.year
+      @month = Date.today.month
+    end
   end
 
   def edit

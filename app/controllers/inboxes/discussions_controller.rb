@@ -5,7 +5,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
 
   def index
     if current_user
-      current_user.discussions.order("updated_at Desc").first.mark_as_read_for(current_user)
+      current_user.discussions.order("updated_at Desc").first.mark_as_read_for(current_user) if current_user.discussions.first
     end
     @discussions = current_user.discussions.order("updated_at Desc")
     @discussion = current_user.discussions.order("updated_at Desc").first
@@ -17,7 +17,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
     @discussion.messages = @discussion.messages.last(60)
 
     respond_to do |format|
-      format.html
+      format.html { redirect_to discussions_url}
       format.js
       format.json { render json: @discussion }
     end
@@ -38,7 +38,7 @@ class Inboxes::DiscussionsController < Inboxes::BaseController
     begin
       redirect_to :back
     rescue ActionController::RedirectBackError
-      redirect_to inboxes.discussions_url
+      redirect_to discussions_url
     end
   end
 
