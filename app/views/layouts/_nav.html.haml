@@ -33,13 +33,14 @@
           %li{ class: "#{'active' if current_page?(new_profile_workout_path(current_user.profile))}"}
             = link_to new_profile_workout_path(current_user.profile) do
               Új edzés
+          %li.divider
           %li{ class: "#{'active' if current_page?(new_profile_size_path(current_user.profile))}"}
             = link_to new_profile_size_path(current_user.profile) do
               Új mérés
           %li.divider
           %li{ class: "#{"active" if current_page?(discussions_url)}" }
             = link_to discussions_url, class: "fix-height" do
-              %i.general.foundicon-mail
+              %i.fi-mail
           %li.divider
           %li.has-dropdown
             %a{:href => "#"} Menu
@@ -49,7 +50,7 @@
                   Profilom
               %li{ class: "#{'active' if current_page?(edit_profile_path(current_user.profile))}"}
                 = link_to edit_profile_path(current_user.profile) do
-                  %i.general.foundicon-settings
+                  %i.fi-widget
                   Beállítások
               %li{ class: "#{'active' if current_page?(profile_sizes_path(current_user.profile))}"}
                 = link_to profile_sizes_path(current_user.profile) do
@@ -58,7 +59,8 @@
               %li
                 = link_to "Kilépés", kilepes_path
 
-= render 'layouts/login_modal'
+- unless user_signed_in?
+  = render 'layouts/login_modal'
 
 /%li.divider.hide-for-small
 /%li.has-dropdown

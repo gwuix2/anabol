@@ -8,17 +8,17 @@
             = link_to profile_workout_path(@profile, workout), remote: true, id: "workout-link" do
               - if workout.color == "fehér"
                 .label.round.secondary
-                  %i.general.foundicon-checkmark    
+                  %i.fi-check    
               - elsif workout.color == "kék"
                 .label.round
-                  %i.general.foundicon-checkmark          
+                  %i.fi-check      
               - elsif workout.color == "zöld"            
               - elsif workout.color == "sárga"            
               - elsif workout.color == "piros"          
               - elsif workout.color == "fekete"            
               - else
                 .label.round
-                  %i.general.foundicon-checkmark  
+                  %i.fi-check 
 
     - else
       = date.day

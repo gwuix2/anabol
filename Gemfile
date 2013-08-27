@@ -24,7 +24,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem 'zurb-foundation'
-  gem 'foundation-icons-sass-rails'
+  gem 'foundation-icons-sass-rails', :git => 'https://github.com/zaiste/foundation-icons-sass-rails.git'
   gem 'foundation_rails_helper'
   gem 'therubyracer'
   gem 'execjs'
@@ -48,7 +48,7 @@ gem 'devise'
 gem 'haml-rails'
 gem "rmagick"
 gem 'carrierwave'
-gem 'lazy_high_charts', '1.4.2'
+gem 'lazy_high_charts'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

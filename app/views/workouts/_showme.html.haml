@@ -9,16 +9,19 @@
       - if can? :update, @workout
         .right
           %a.button.tiny.secondary.dropdown{"data-dropdown" => "drop1", :href => "#"}
-            %i.general.foundicon-settings
+            %i.fi-widget
           %ul.f-dropdown#drop1
             %li
               = link_to new_profile_workout_path(@profile, @workout) do
+                %i.fi-plus
                 Új edzés
             %li
               = link_to edit_profile_workout_path(@profile, @workout) do
+                %i.fi-page-edit
                 Szerkesztés
             %li
               = link_to profile_workout_path(@profile, @workout), method: :delete, :data => { :confirm => 'Biztos vagy benne, hogy törlöd?' } do
+                %i.fi-trash
                 Törlés
     %p
       Időtartam:

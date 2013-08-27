@@ -7,16 +7,27 @@
         = render "follow_form"
         = render "size_view"
     .row
-      .large-5.columns
-        = select_year(@year)
-        = select_month(@month)
+      .large-6.columns
+        .row
+          .large-12.columns
+            .row
+              .large-6.columns
+                = select_year(@year)
+              .large-6.columns
+                = select_month(@month)
         = render "calendar"
-      .large-7.columns
+      .large-6.columns
         .workout-wrapper
           = render "workouts/showme"
+    /.row
+    /  .large-6.columns
+    /    = high_chart("chart_tzs", @ts)
     .row
-      .large-6.columns
-        = high_chart("chart_tzs", @ts)
+      .large-12.columns
+        %a{"data-reveal-id" => "upload_photo", :href => "#"} Kép feltöltés
+        = render "orbit"
+
+= render "upload_photo"
 
 :javascript
   $(document).ready(function() {
