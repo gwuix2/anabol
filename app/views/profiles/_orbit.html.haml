@@ -2,4 +2,4 @@
   = @photos.each do |photo|
     - if photo.image_url
       %li
-        = image_tag(photo.image)
+        = image_tag(photo.image_url)
