@@ -17,5 +17,4 @@
 //= require dataTables/jquery.dataTables
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
 $(document).foundation();
