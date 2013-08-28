@@ -3,11 +3,4 @@
     Testsúly grafikon.
   %br/
   %br/
-  :javascript
-    $(function() {
-                var options = { "title": { "text": null },"legend": { "layout": "vertical","style": {  } },"xAxis": { "categories": [ "2013        -08-10","2013-08-11","2013-08-12","2013-08-22" ] },"yAxis": { "title": { "text": null },"labels": {  } },"tooltip": {         "enabled": true },"credits": { "enabled": false },"plotOptions": { "areaspline": {  } },"chart": { "defaultSeriesType":         "area","renderTo": "chart_tzs" },"subtitle": {  },"series": [{ "name": "Testsúly(kg)","data": [ 87,101,103,50 ] }] };
-    
-    window.chart_chart_tzs = new Highcharts.Chart(options);
-            
-      });
-  #chart_tzs{:style => "height:245px;width:380px;"}
+  = high_chart("chart_ts", @ts)
