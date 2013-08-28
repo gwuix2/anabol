@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require highcharts/highcharts
 //= require foundation
 //= require dataTables/jquery.dataTables
-//= require highcharts/highcharts
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

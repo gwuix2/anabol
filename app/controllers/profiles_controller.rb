@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
     @sizes = Size.where(:user_id => @profile.user.id).order("mikor ASC").all
 
     @new_photo = @profile.photos.new
-    @photos = @profile.photos.last(7)
+    @photos = @profile.photos.last(3)
     #graphs
     #@testsuly = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testsuly).compact
     #@testzsir = Size.where(:user_id => @profile.user.id).order("mikor ASC").collect(&:testzsir).compact

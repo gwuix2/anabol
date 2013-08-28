@@ -1,4 +1,5 @@
 %ul{"data-orbit" => ""}
   = @photos.each do |photo|
-    %li
-      = image_tag(photo.image)
+    - if photo.image_url
+      %li
+        = image_tag(photo.image)

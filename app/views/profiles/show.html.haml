@@ -19,13 +19,18 @@
       .large-6.columns
         .workout-wrapper
           = render "workouts/showme"
-    /.row
-    /  .large-6.columns
-    /    = high_chart("chart_tzs", @ts)
+    .row
+      .large-6.columns
+        = render "chart"
+      .large-6.columns
+        = render "personal"
+    %br/
     .row
       .large-12.columns
-        %a{"data-reveal-id" => "upload_photo", :href => "#"} Kép feltöltés
+        /%a{"data-reveal-id" => "upload_photo", :href => "#"} Kép feltöltés
         = render "orbit"
+    .row
+      .large-12.colums
 
 = render "upload_photo"
 
