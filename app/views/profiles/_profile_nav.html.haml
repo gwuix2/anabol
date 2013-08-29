@@ -6,7 +6,8 @@
           = link_to @profile.user_name, @profile if @profile.user_name
 .row
   .small-11.small-centered.columns
-    = image_tag(@profile.cover_image_url(:cover), class: "cover-image") if @profile.cover_image_url
+    .cover-wrapper
+      = image_tag(@profile.cover_image_url(:cover), class: "cover-image") if @profile.cover_image_url
     - if @profile.image_url
       = image_tag(@profile.image_url(:thumb), class: "th profile-img")
     - else

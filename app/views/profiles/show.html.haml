@@ -27,8 +27,11 @@
     %br/
     .row
       .large-12.columns
-        /%a{"data-reveal-id" => "upload_photo", :href => "#"} Kép feltöltés
-        = render "orbit"
+        .panel
+          - if own_profile?(@profile)
+            %a.button.small{"data-reveal-id" => "upload_photo", :href => "#"} Kép feltöltés
+        - if @profile.photos.count > 0
+          = render "clearing"
     .row
       .large-12.colums
 

@@ -1112,7 +1112,7 @@ table {
 }
 
 #workout-description {
-  height: 247px;
+  height: 236px;
   overflow: auto;
 }
 
@@ -1164,4 +1164,14 @@ table {
 
 #chart {
   height: 290px;
+}
+
+.cover-wrapper {
+  width: 100%;
+  background-color: #eee;
+  height: 280px;
+}
+
+.profile-header {
+  margin-top: 25px;
 }

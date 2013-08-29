@@ -1,0 +1,9 @@
+#photos
+  %ul.clearing-thumbs{"data-clearing" => ""}
+    - @profile.photos.each do |photo|
+      - if photo.image_url
+        %li
+          = link_to photo.image_url do
+            = image_tag(photo.image_url(:thumb), class: "th")
+
+%br/
